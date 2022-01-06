@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from 'antd';
+import Header from './components/Header'
+
+const { Content, Footer } = Layout;
+
+const Employer = () => {
+  return (<>Employer</>)
+}
+
+const Employee = () => {
+  return (<>Employee</>)
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Layout className="layout">
+      <Header />
+      <Content style={{ padding: '0 50px' }}>
+        <Routes>
+          <Route path={"employer"} element={<Employer />} />
+          <Route path="*" element={<Employee />} />
+        </Routes>
+      </Content>
+      <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+    </Layout>)
 }
 
 export default App;
