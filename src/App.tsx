@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header'
 import Employee from './components/Employee/Employee'
 import Employer from './components/Employer/Employer'
-import Createresume from './components/Createresume'
+import Createresume from './components/Createresume/Createresume'
 
 function App() {
   return (<>
