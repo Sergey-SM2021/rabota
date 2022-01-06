@@ -1,3 +1,8 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
 a{
     color: black;
 }
@@ -5,5 +10,3 @@ a{
 a:hover{
     color: black;
 }
-
-@import '~antd/dist/antd.css'
