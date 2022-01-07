@@ -3,27 +3,25 @@
     src: url("./assets/fonts/static/OpenSans/OpenSans-Bold.ttf");
 }
 
-*{
+* {
     margin: 0px;
     padding: 0px;
     font-size: 24px;
     font-weight: 400;
 }
 
-a{
+a {
     color: black;
 }
 
-a:hover{
+a:hover {
     color: black;
 }
 
-h1{
+h1 {
     font-family: "Open-Sans";
     font-size: 40px;
     font-weight: 600;
 }
 
-h2{
-
-}
+h2 {}
