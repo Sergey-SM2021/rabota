@@ -1,8 +1,9 @@
 import Container from '../Container'
-import Main, { Type } from '../Main'
+import Main from '../Main'
+import employer from '../../assets/img/8095794-1592926814.jpg'
 
 const Employer = () => {
-    return (<Main type={Type.employer}><Container><div >Employer</div></Container></Main>)
+    return (<Main img={employer}><Container><div >Employer</div></Container></Main>)
 }
 
 export default Employer
