@@ -4,11 +4,19 @@ import styled from "styled-components"
 interface FieldType {
     handleChange: any,
     values: string,
-    name: string
+    name: string,
+    error: string | undefined,
+    touched: any
 }
 
-const Field: FC<FieldType> = ({ handleChange, values, name }) => {
-    return (<Container><Name>{name}</Name><Input><input onChange={handleChange} value={values} name={name}></input></Input></Container>)
+const Field: FC<FieldType> = ({ handleChange, values, name, error, touched }) => {
+    return (<Container>
+        <Name>{name}</Name>
+        <Input>
+            {error&&touched?<>ssss</>:null}
+            <input onChange={handleChange} value={values} name={name}></input>
+        </Input>
+    </Container>)
 }
 
 let Container = styled.div`
