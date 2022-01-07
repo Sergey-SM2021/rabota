@@ -1,6 +1,11 @@
 @font-face {
-    font-family: "Open-Sans";
+    font-family: "Open-Sans-Bold";
     src: url("./assets/fonts/static/OpenSans/OpenSans-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Open-Sans-Italic";
+    src: url("./assets/fonts/static/OpenSans/OpenSans-Italic.ttf");
 }
 
 * {
@@ -19,9 +24,13 @@ a:hover {
 }
 
 h1 {
-    font-family: "Open-Sans";
+    font-family: "Open-Sans-Bold";
     font-size: 40px;
     font-weight: 600;
 }
 
-h2 {}
+h2 {
+    font-family: "Open-Sans-Italic";
+    font-size: 30px;
+    font-weight: 600;
+}
