@@ -3,6 +3,7 @@ import Header from './components/Header/Header'
 import Employee from './components/Employee/Employee'
 import Employer from './components/Employer/Employer'
 import Createresume from './components/Createresume/Createresume'
+import Auth from './components/Auth/Auth'
 
 function App() {
   return (<>
@@ -11,6 +12,7 @@ function App() {
       <Route path="/employer" element={<Employer />} />
       <Route path="*" element={<Employee />} />
       <Route path="/createresume" element={<Createresume />} />
+      <Route path="/auth" element={<Auth />} />
     </Routes></>)
 }
 
