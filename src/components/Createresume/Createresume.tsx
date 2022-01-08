@@ -2,6 +2,8 @@ import { Formik } from "formik"
 import Field from "./Field"
 import Wrupper from "../Container"
 import styled from "styled-components"
+import Main from "../Main"
+import path from '../../assets/img/Dollarphotoclub_49188294-2.jpg'
 
 // type Error = null | {
 //     name:string,
@@ -14,10 +16,10 @@ import styled from "styled-components"
 // }
 
 const Createresume = () => {
-    return (<Wrupper><Formik
+    return (<Main img={path}><Wrupper><Formik
         validate={(values) => {
-            let errors:any = {}
-            if (!values.name) { errors.name = "поле должно быть заполненно"}
+            let errors: any = {}
+            if (!values.name) { errors.name = "поле должно быть заполненно" }
             return errors
         }}
         onSubmit={(values) => { alert(JSON.stringify(values)) }}
@@ -37,7 +39,7 @@ const Createresume = () => {
                 <input type="submit" />
             </form>
         )}
-    </Formik></Wrupper>)
+    </Formik></Wrupper></Main>)
 }
 
 let Textarea = styled.textarea`
