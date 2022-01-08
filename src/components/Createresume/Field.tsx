@@ -13,8 +13,8 @@ const Field: FC<FieldType> = ({ handleChange, values, name, error, touched }) =>
     return (<Container>
         <Name>{name}</Name>
         <Input>
-            {error&&touched?<>ssss</>:null}
-            <input onChange={handleChange} value={values} name={name}></input>
+            <input width={100} onChange={handleChange} value={values} name={name}></input>
+            {error && touched ? <Error>{error}</Error> : null}
         </Input>
     </Container>)
 }
@@ -26,12 +26,17 @@ let Container = styled.div`
     margin: 10px 0px;
 `
 
+const Error = styled.div`
+    color: red;
+    height: 20px;
+`
+
 let Name = styled.div`
     width: 100px;
 `
 
 let Input = styled.div`
-    width: 100px;
+    width: 200px;
 `
 
 export default Field

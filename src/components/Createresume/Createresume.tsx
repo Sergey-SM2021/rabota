@@ -19,7 +19,7 @@ const Createresume = () => {
     return (<Main img={path}><Wrupper><Formik
         validate={(values) => {
             let errors: any = {}
-            if (!values.name) { errors.name = "поле должно быть заполненно" }
+            if (!values.name) { errors.name = "заполните поле !" }
             return errors
         }}
         onSubmit={(values) => { alert(JSON.stringify(values)) }}
