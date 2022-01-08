@@ -36,7 +36,7 @@ const Createresume = () => {
                 <Field touched={touched} error={errors.experience} values={values.experience} handleChange={handleChange} name="experience" />
                 <h2>Дополнительная информация</h2>
                 <Container><Textarea name="data" onChange={handleChange} value={values.data}></Textarea></Container>
-                <input type="submit" />
+                <Button type="submit" />
             </form>
         )}
     </Formik></Wrupper></Main>)
@@ -44,6 +44,15 @@ const Createresume = () => {
 
 let Textarea = styled.textarea`
     width: 100%;
+`
+
+const Button = styled.input`
+    border-radius: 3px;
+    width: 300px;
+    height: 40px;
+    background: #40a9ff;
+    border: none;
+    color: white;
 `
 
 let Container = styled.div`
