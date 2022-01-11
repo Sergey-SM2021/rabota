@@ -5,6 +5,8 @@ interface mainType {
 }
 
 let Main = styled.div<mainType>`
+    box-sizing: border-box;
+    padding: 1px;
     background-image: ${(props) => (`url(${props.img})`)};
     width: 100%;
     height: 95vh;

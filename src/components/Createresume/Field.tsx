@@ -5,16 +5,17 @@ interface FieldType {
     handleChange: any,
     values: string,
     name: string,
-    error: string | undefined,
+    error: any,
     touched: any
 }
 
 const Field: FC<FieldType> = ({ handleChange, values, name, error, touched }) => {
+    console.log(error)
     return (<Container>
         <Name>{name}</Name>
         <Input>
             <input width={100} onChange={handleChange} value={values} name={name}></input>
-            {error && touched ? <Error>{error}</Error> : null}
+            {touched?<Error>{error.name}</Error>:null}
         </Input>
     </Container>)
 }
