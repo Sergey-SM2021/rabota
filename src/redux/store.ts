@@ -2,10 +2,12 @@ import { applyMiddleware, combineReducers, createStore } from "redux";
 import employee from './employee'
 import employer from './employer'
 import thunk from 'redux-thunk'
+import form from './form'
 
 const reducers = combineReducers({
     employee,
-    employer
+    employer,
+    form
 })
 
 let store = createStore(reducers,applyMiddleware(thunk))

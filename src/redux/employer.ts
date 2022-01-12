@@ -1,4 +1,6 @@
-const employer = (state:any,action:any) => {
+let defState = {}
+
+const employer = (state = defState,action:any) => {
     return state
 }
 
