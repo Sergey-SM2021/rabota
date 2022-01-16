@@ -1,43 +1,36 @@
-const FILLFIRSTFORM = "FILLFIRSTFORM"
+import {Dispatch} from "redux";
+import {FormType} from "../types";
 
-interface firstForm {
-    firstname?: string,
-    lastname?: string,
-    namber?: string,
-    data?: string
+enum constants { SUBMITFORM}
+
+let defaultState = {}
+
+interface SUBMITFORMACTYPE {
+    type: constants.SUBMITFORM,
+    data: FormType
 }
 
-interface form {
-    firststep: firstForm,
-    laststep: {}
-}
+export const SUBMITFORMAC = (data: FormType):SUBMITFORMACTYPE => ({
+    type: constants.SUBMITFORM,
+    data
+})
 
-let formState: form = {
-    firststep: {},
-    laststep: {}
-}
+type actionType = SUBMITFORMACTYPE
 
-interface FillFirstFormACType {
-    type: "FILLFIRSTFORM",
-    form: firstForm
-}
-
-type actionType = FillFirstFormACType
-
-export const FillFirstFormAC = (form: firstForm): FillFirstFormACType => {
-    console.log({ type: FILLFIRSTFORM, form })
-    return { type: FILLFIRSTFORM, form }
-}
-
-const form = (state = formState, action: actionType) => {
-    let stateCopy = { ...state }
+const form = (state = defaultState, action: actionType) => {
+    let stateCopy = {...state}
     switch (action.type) {
-        case "FILLFIRSTFORM":
-            if(!action.form.data){action.form.data = ""}
-            stateCopy.firststep = action.form
+        case constants.SUBMITFORM:
+            console.log("Пока вё работае")
             return stateCopy
         default:
             return stateCopy
+    }
+}
+
+export const ThunkAC = (data: FormType) => {
+    return async (dispatch: Dispatch<actionType>) => {
+        dispatch(SUBMITFORMAC(data))
     }
 }
 

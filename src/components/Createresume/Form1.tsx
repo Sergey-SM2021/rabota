@@ -1,8 +1,13 @@
-import {Field, Formik, Form, FieldArray} from 'formik'
+import { Field, Formik, Form, FieldArray } from 'formik'
 import Container from '../Container'
 import styled from "styled-components";
+import { FormType } from "../../types";
+import { useDispatch } from "react-redux";
+import { ThunkAC } from "../../redux/form";
 
 const Resume = () => {
+    const dispatch = useDispatch()
+
     interface ErrorType {
         name?: string,
         surename?: string,
@@ -16,7 +21,7 @@ const Resume = () => {
         <Container>
             <h1>Создать резюме</h1>
             <Formik
-                validate={(value) => {
+                validate={(value: FormType) => {
                     let Error: ErrorType = {}
 
                     const NameTemplate = /[1-9 a-z]/
@@ -34,14 +39,14 @@ const Resume = () => {
                         Error.surename = "Содержит запрещённый символ"
                     }
 
-                    if(!value.experience){
+                    if (!value.experience) {
                         Error.experience = "Укажите опыт работы"
                     }
 
                     return Error
                 }}
                 onSubmit={(values) => {
-                    alert(JSON.stringify(values))
+                    dispatch(ThunkAC(values))
                 }}
                 initialValues={{
                     name: "",
@@ -51,30 +56,30 @@ const Resume = () => {
                     skills: [""],
                     experience: ""
                 }}
-                render={({values, errors, touched}) => (
+                render={({ values, errors, touched }) => (
                     <Form>
                         <Block>
                             {touched.name && errors.name ? <ErrorMessage>*{errors.name}</ErrorMessage> : <div>Имя</div>}
-                            <Field name={"name"}/>
+                            <Field name={"name"} />
                         </Block>
                         <Block>
                             {touched.surename && errors.surename ? <ErrorMessage>*{errors.surename}</ErrorMessage> :
                                 <div>Фамилия</div>}
-                            <Field name={"surename"}/>
+                            <Field name={"surename"} />
                         </Block>
                         <Block>
                             <div>Номер телефона</div>
-                            <Field name={"number"}/>
+                            <Field name={"number"} />
                         </Block>
                         <Block>
                             <div>Дополнительные данные</div>
-                            <Field name={"number"} as="textArea"/>
+                            <Field name={"number"} as="textArea" />
                         </Block>
                         <Block>
                             {touched.experience && errors.experience ? <ErrorMessage>*{errors.experience}</ErrorMessage> :
                                 <div>Укажите опыт работы</div>}
-                            <div><label>есть<Field value={"есть"} name={"experience"} type={"radio"}/></label></div>
-                            <label>нет<Field value={"нет"} name={"experience"} type={"radio"}/></label>
+                            <div><label>есть<Field value={"есть"} name={"experience"} type={"radio"} /></label></div>
+                            <label>нет<Field value={"нет"} name={"experience"} type={"radio"} /></label>
                         </Block>
                         <Block>
                             <FieldArray name={'skills'} render={(helpers) => (<div>
@@ -86,15 +91,15 @@ const Resume = () => {
                                 </div>
                                 {
                                     values.skills.map((el, index) => (<Block>
-                                            <Field name={`skills[${index}]`}/>
-                                            <button type={"button"} onClick={() => {
-                                                helpers.remove(index)
-                                            }}>Удалить
-                                            </button>
-                                        </Block>
+                                        <Field name={`skills[${index}]`} />
+                                        <button type={"button"} onClick={() => {
+                                            helpers.remove(index)
+                                        }}>Удалить
+                                        </button>
+                                    </Block>
                                     ))
                                 }
-                            </div>)}/>
+                            </div>)} />
                         </Block>
                         <Block>
                             <button type="submit">Заполнить</button>
