@@ -1,9 +1,12 @@
 import {Dispatch} from "redux";
+import { createResume } from "../api/api";
 import {FormType} from "../types";
 
 enum constants { SUBMITFORM}
 
-let defaultState = {}
+let defaultState = {
+    loading:false
+}
 
 interface SUBMITFORMACTYPE {
     type: constants.SUBMITFORM,
@@ -28,9 +31,9 @@ const form = (state = defaultState, action: actionType) => {
     }
 }
 
-export const ThunkAC = (data: FormType) => {
+export const SendResume = (data: FormType) => {
     return async (dispatch: Dispatch<actionType>) => {
-        dispatch(SUBMITFORMAC(data))
+        await createResume(data)
     }
 }
 

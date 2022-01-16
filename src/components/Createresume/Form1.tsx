@@ -3,7 +3,7 @@ import Container from '../Container'
 import styled from "styled-components";
 import { FormType } from "../../types";
 import { useDispatch } from "react-redux";
-import { ThunkAC } from "../../redux/form";
+import { SendResume } from "../../redux/form";
 
 const Resume = () => {
     const dispatch = useDispatch()
@@ -46,7 +46,7 @@ const Resume = () => {
                     return Error
                 }}
                 onSubmit={(values) => {
-                    dispatch(ThunkAC(values))
+                    dispatch(SendResume(values))
                 }}
                 initialValues={{
                     name: "",
@@ -73,7 +73,7 @@ const Resume = () => {
                         </Block>
                         <Block>
                             <div>Дополнительные данные</div>
-                            <Field name={"number"} as="textArea" />
+                            <Field name={"data"} as="textArea" />
                         </Block>
                         <Block>
                             {touched.experience && errors.experience ? <ErrorMessage>*{errors.experience}</ErrorMessage> :
