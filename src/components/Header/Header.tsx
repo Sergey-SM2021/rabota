@@ -1,20 +1,17 @@
 import { NavLink } from 'react-router-dom'
-import Container from "../Container"
 import styled from "styled-components";
 
 const Header = () => {
-    return (
-        <Container>
-            <HeaderStyled>
-                <NavLink to="employer">Employer</NavLink>
-                <NavLink to="/">Employee</NavLink>
-            </HeaderStyled>
-        </Container>)
+    return (<HeaderStyled>
+        <NavLink to="employer">Employer</NavLink>
+        <NavLink to="/">Employee</NavLink>
+    </HeaderStyled>)
 }
 
 let HeaderStyled = styled.div`
+    background: #00aa87;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 5vh;
     align-items: center;
 `
