@@ -1,5 +1,5 @@
 import {Dispatch} from "redux";
-import { createResume } from "../api/api";
+import * as axios from "../api/api";
 import {FormType} from "../types";
 
 enum constants { SUBMITFORM}
@@ -33,7 +33,7 @@ const form = (state = defaultState, action: actionType) => {
 
 export const SendResume = (data: FormType) => {
     return async (dispatch: Dispatch<actionType>) => {
-        await createResume(data)
+        await axios.createResume(data)
     }
 }
 

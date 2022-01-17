@@ -8,6 +8,6 @@ const instace = axios.create({
 export const createResume = (resume: FormType) => (
     instace.post("resume", resume))
 
-export const getResumesByAPI = async () => (
+export const getResumes = async () => (
     (await instace.get<Array<FormType>>("resume")).data
 )

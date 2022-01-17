@@ -1,5 +1,5 @@
 import { Dispatch } from "redux"
-import { getResumesByAPI } from "../api/api"
+import * as axios from "../api/api"
 import { FormType } from "../types"
 
 enum CONSTANTS { "SETRESUMES" }
@@ -42,7 +42,7 @@ const employer = (state = defState, action: actionTypes) => {
 
 export const getResumesTC = () => {
     return async (dispatch: Dispatch<actionTypes>) => {
-        const Resumes = await getResumesByAPI()
+        const Resumes = await axios.getResumes()
         dispatch(setResumesAC(Resumes))
     }
 }
