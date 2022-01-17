@@ -1,20 +1,22 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { getResumesTC } from '../../redux/employer'
 import Resume from './Resume'
+import { getResumes } from '../../redux/selectors'
+
+import { getResumesTC } from '../../redux/employer'
 import styled from 'styled-components'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { getResumes } from '../../redux/selectors'
+
 
 const Employer = () => {
     const dispatch = useDispatch()
     let resumes = useSelector(getResumes)
     let loc = useLocation().pathname
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getResumesTC())
-    },[loc])
+    }, [loc])
     return (<>
-        <BG>{resumes.map((el, i) => (<Resume {...el} />))}</BG>
+        <BG>{resumes.map((el) => (<Resume {...el} />))}</BG>
     </>)
 }
 
