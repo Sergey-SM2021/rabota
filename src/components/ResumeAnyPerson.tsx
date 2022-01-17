@@ -1,10 +1,10 @@
 import React from 'react'
+import styled from 'styled-components'
 
 const ResumeAnyPerson = () => {
-    return (
-        <div>
-            d
-        </div>
+    return (<>
+        d
+    </>
     )
 }
 

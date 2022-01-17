@@ -1,5 +1,4 @@
 import { Field, Formik, Form, FieldArray } from 'formik'
-import Container from '../Container'
 import styled from "styled-components";
 import { FormType } from "../../types";
 import { useDispatch } from "react-redux";
@@ -17,8 +16,7 @@ const Resume = () => {
         experience?: string
     }
 
-    return (
-        <Container>
+    return (<>
             <h1>Создать резюме</h1>
             <Formik
                 validate={(value: FormType) => {
@@ -113,8 +111,7 @@ const Resume = () => {
                     </Form>
                 )}
             />
-        </Container>
-    )
+    </>)
 }
 const ErrorMessage = styled.div`
     color: #ff0000;

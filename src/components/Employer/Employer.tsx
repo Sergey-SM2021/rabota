@@ -1,4 +1,3 @@
-import Container from '../Container'
 import { useDispatch, useSelector } from 'react-redux'
 import { getResumesTC } from '../../redux/employer'
 import Resume from './Resume'
@@ -15,7 +14,7 @@ const Employer = () => {
         dispatch(getResumesTC())
     },[loc])
     return (<>
-        <BG><Container>{resumes.map((el, i) => (<Resume {...el} />))}</Container></BG>
+        <BG>{resumes.map((el, i) => (<Resume {...el} />))}</BG>
     </>)
 }
 

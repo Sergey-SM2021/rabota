@@ -5,17 +5,34 @@ import Employer from './components/Employer/Employer'
 import Createresume from './components/Createresume/Form1'
 import Auth from './components/Auth/Auth'
 import ResumeAnyPerson from './components/ResumeAnyPerson'
+import styled from 'styled-components';
 
 function App() {
   return (<>
     <Header />
-    <Routes>
-      <Route path="/employer" element={<Employer />} />
-      <Route path="/employer/*" element={<ResumeAnyPerson />} />
-      <Route path="*" element={<Employee />} />
-      <Route path="/createresume" element={<Createresume />} />
-      <Route path="/auth" element={<Auth />} />
-    </Routes></>)
+    <Bg>
+      <Container>
+        <Routes>
+          <Route path="/employer" element={<Employer />} />
+          <Route path="/employer/*" element={<ResumeAnyPerson />} />
+          <Route path="*" element={<Employee />} />
+          <Route path="/createresume" element={<Createresume />} />
+          <Route path="/auth" element={<Auth />} />
+        </Routes>
+      </Container>
+    </Bg>
+  </>)
 }
+
+const Bg = styled.div`
+    background: #eeeeee;
+`
+
+let Container = styled.div`
+    width: 930px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+`
 
 export default App;
