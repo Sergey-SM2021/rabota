@@ -43,6 +43,10 @@ const Resume = () => {
                         Error.experience = "Укажите опыт работы"
                     }
 
+                    if (!value.data) {
+                        Error.data = "Это обязательное поле"
+                    }
+
                     return Error
                 }}
                 onSubmit={(values) => {
@@ -54,7 +58,8 @@ const Resume = () => {
                     number: "",
                     data: "",
                     skills: [""],
-                    experience: ""
+                    experience: "",
+                    _id:""
                 }}
                 render={({ values, errors, touched }) => (
                     <Form>
@@ -72,8 +77,9 @@ const Resume = () => {
                             <Field name={"number"} />
                         </Block>
                         <Block>
-                            <div>Дополнительные данные</div>
-                            <Field name={"data"} as="textArea" />
+                            {touched.data && errors.data ? <ErrorMessage>*{errors.data}</ErrorMessage> :
+                                <div>Укажите специальность</div>}
+                            <Field name={"data"}  as="textArea" />
                         </Block>
                         <Block>
                             {touched.experience && errors.experience ? <ErrorMessage>*{errors.experience}</ErrorMessage> :
@@ -111,11 +117,11 @@ const Resume = () => {
     )
 }
 const ErrorMessage = styled.div`
-  color: #ff0000;
+    color: #ff0000;
 `
 
 const Block = styled.div`
-  margin: 10px 0px;
+    margin: 10px 0px;
 `
 
 export default Resume

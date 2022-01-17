@@ -1,16 +1,15 @@
-import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { FormType } from '../../types'
 
 function Resume(Resume: FormType) {
-    let location = useLocation().pathname
-    useEffect(()=>{},)
+    const nav = useNavigate()
     return (<>
         <Container>
+            <h3>Опыт работы:{Resume.experience}</h3>
             <h2>{Resume.data}</h2>
             <h3>{Resume.skills}</h3>
-            <button onClick={()=>{console.log(location)}}>Показать анкету</button>
+            <button onClick={()=>{nav(Resume._id)}}>Показать анкету</button>
         </Container>
         <hr />
     </>)

@@ -1,8 +1,9 @@
 export interface FormType {
-    name: string,
-    surename: string,
-    number: string,
-    data: string,
-    skills: string[],
-    experience: string
+        _id: string,
+        name: string,
+        surename: string,
+        number: string,
+        skills: Array<string>,
+        data: string,
+        experience: string
 }
