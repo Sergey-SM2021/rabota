@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import { FormType } from '../../types'
 
-function Resume(Resume: FormType) {
+import { IResume } from '../../types'
+
+function Resume(Resume: IResume) {
     const nav = useNavigate()
     return (<>
         <Container>

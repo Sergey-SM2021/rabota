@@ -1,12 +1,12 @@
 import { Dispatch } from 'redux';
-import { FormType } from './../types';
+import { IResume } from './../types';
 import * as axios from '../api/api'
 
 enum constants {
     SETRESUME = "SETRESUME"
 }
 
-let initialState: FormType = {
+let initialState: IResume = {
     _id: "ghbd9hher78w78wee8932",
     data: "С# developer",
     experience: "есть",
@@ -17,11 +17,11 @@ let initialState: FormType = {
 }
 
 interface IsetResume {
-    resume: FormType,
+    resume: IResume,
     type: constants.SETRESUME
 }
 
-const setResume = (resume: FormType): IsetResume => ({
+const setResume = (resume: IResume): IsetResume => ({
     resume: resume,
     type: constants.SETRESUME
 })

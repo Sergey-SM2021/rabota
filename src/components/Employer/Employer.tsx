@@ -13,6 +13,7 @@ const Employer = () => {
     let resumes = useSelector(getResumes)
     let loc = useLocation().pathname
     useEffect(() => {
+        alert("loading...")
         dispatch(getResumesTC())
     }, [loc])
     return (<>

@@ -1,8 +1,8 @@
 import { Dispatch } from "redux";
 import * as axios from "../api/api";
-import { MyFormType, FormType } from "../types";
+import { IForm } from "../types";
 
-enum constants { SUBMITFORM }
+enum constants { SUBMITFORM = "SUBMITFORM", TOGGALE = "TOGGALE" }
 
 let defaultState = {
     loading: false
@@ -10,30 +10,35 @@ let defaultState = {
 
 interface SUBMITFORMACTYPE {
     type: constants.SUBMITFORM,
-    data: FormType
+    data: IForm
 }
 
-export const SUBMITFORMAC = (data: FormType): SUBMITFORMACTYPE => ({
-    type: constants.SUBMITFORM,
-    data
+interface ItoggleLoading {
+    type: constants.TOGGALE,
+}
+
+const toggleLoading = (): ItoggleLoading => ({
+    type: constants.TOGGALE,
 })
 
-type actionType = SUBMITFORMACTYPE
+type actionType = SUBMITFORMACTYPE | ItoggleLoading
 
 const form = (state = defaultState, action: actionType) => {
     let stateCopy = { ...state }
     switch (action.type) {
-        case constants.SUBMITFORM:
-            console.log("Пока вё работае")
+        case constants.TOGGALE:
+            stateCopy.loading = !stateCopy.loading
             return stateCopy
         default:
             return stateCopy
     }
 }
 
-export const SendResume = (data: MyFormType) => {
+export const SendResume = (data: IForm) => {
     return async (dispatch: Dispatch<actionType>) => {
+        dispatch(toggleLoading())
         await axios.createResume(data)
+        dispatch(toggleLoading())
     }
 }
 

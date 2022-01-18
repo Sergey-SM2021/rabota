@@ -1,4 +1,4 @@
-export interface FormType {
+export interface IResume {
         _id: string ,
         name: string,
         surename: string,
@@ -8,7 +8,7 @@ export interface FormType {
         experience: string
 }
 
-export interface MyFormType {
+export interface IForm {
         name: string,
         surename: string,
         number: string,

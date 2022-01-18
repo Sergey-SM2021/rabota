@@ -1,10 +1,10 @@
 import { Dispatch } from "redux"
 import * as axios from "../api/api"
-import { FormType } from "../types"
+import { IResume } from "../types"
 
 enum CONSTANTS { "SETRESUMES" }
 
-let defState: Array<FormType> = [
+let defState: Array<IResume> = [
     {
         name: "Сергий",
         _id:"678fff",
@@ -18,10 +18,10 @@ let defState: Array<FormType> = [
 
 interface setResumesType {
     type: CONSTANTS.SETRESUMES,
-    data:Array<FormType>
+    data:Array<IResume>
 }
 
-const setResumesAC = (data: Array<FormType>): setResumesType => ({
+const setResumesAC = (data: Array<IResume>): setResumesType => ({
     type: CONSTANTS.SETRESUMES,
     data
 })

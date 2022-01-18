@@ -58,7 +58,8 @@ const Resume = () => {
                 skills: [""],
                 experience: "",
             }}
-            render={({ values, errors, touched }) => (
+            render={({ values, errors, touched }) => (<>
+            {}
                 <Form>
                     <Block>
                         {touched.name && errors.name ? <ErrorMessage>*{errors.name}</ErrorMessage> : <div>Имя</div>}
@@ -108,7 +109,7 @@ const Resume = () => {
                         <button type="submit">Заполнить</button>
                     </Block>
                 </Form>
-            )}
+            </>)}
         />
     </>)
 }
