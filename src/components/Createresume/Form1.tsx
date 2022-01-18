@@ -1,10 +1,23 @@
 import { Field, Formik, Form, FieldArray } from 'formik'
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { SendResume } from "../../redux/form";
+import * as selectors from '../../redux/selectors'
+
+const Loader = () => {
+    return (<Container>Loader</Container>)
+}
+
+const Container = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* background: #456; */
+`
 
 const Resume = () => {
+    const formIsToggle = useSelector(selectors.formIsToggle)
     const dispatch = useDispatch()
 
     interface ErrorType {
@@ -59,7 +72,7 @@ const Resume = () => {
                 experience: "",
             }}
             render={({ values, errors, touched }) => (<>
-            {}
+                {formIsToggle ? <Loader /> : null}
                 <Form>
                     <Block>
                         {touched.name && errors.name ? <ErrorMessage>*{errors.name}</ErrorMessage> : <div>Имя</div>}
@@ -106,7 +119,7 @@ const Resume = () => {
                         </div>)} />
                     </Block>
                     <Block>
-                        <button type="submit">Заполнить</button>
+                        <button type="submit" disabled={formIsToggle}>Заполнить</button>
                     </Block>
                 </Form>
             </>)}

@@ -7,3 +7,7 @@ export const getResumes = (state: RootType) => (
 export const getResume = (state: RootType) => (
     state.myResume
 )
+
+export const formIsToggle = (state: RootType) => (
+    state.form.loading
+)

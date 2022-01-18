@@ -5,7 +5,7 @@ import { IForm } from "../types";
 enum constants { SUBMITFORM = "SUBMITFORM", TOGGALE = "TOGGALE" }
 
 let defaultState = {
-    loading: false
+    loading: true
 }
 
 interface SUBMITFORMACTYPE {
@@ -38,7 +38,9 @@ export const SendResume = (data: IForm) => {
     return async (dispatch: Dispatch<actionType>) => {
         dispatch(toggleLoading())
         await axios.createResume(data)
-        dispatch(toggleLoading())
+        setTimeout(() => {
+            dispatch(toggleLoading())
+        }, 5000)
     }
 }
 
