@@ -21,7 +21,7 @@ interface IsetResume {
     type: constants.SETRESUME
 }
 
-export const setResume = (resume: FormType): IsetResume => ({
+const setResume = (resume: FormType): IsetResume => ({
     resume: resume,
     type: constants.SETRESUME
 })
@@ -39,9 +39,10 @@ const Reducer = (state = initialState, action: actionType) => {
     }
 }
 
-export const getResume = (resume:FormType) => (
-    ( dispatch : Dispatch<actionType> ) => {
-        // axios.getResume
+export const getResume = (id: string) => (
+    async (dispatch: Dispatch<actionType>) => {
+        const Resumes = await axios.getResume(id)
+        dispatch(setResume(Resumes))
     }
 )
 

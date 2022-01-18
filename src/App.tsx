@@ -14,7 +14,7 @@ function App() {
       <Container>
         <Routes>
           <Route path="/employer" element={<Employer />} />
-          <Route path="/employer/*" element={<ResumeAnyPerson />} />
+          <Route path="/employer/:id" element={<ResumeAnyPerson />} />
           <Route path="*" element={<Employee />} />
           <Route path="/createresume" element={<Createresume />} />
           <Route path="/auth" element={<Auth />} />
