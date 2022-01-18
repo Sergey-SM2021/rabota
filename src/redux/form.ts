@@ -1,11 +1,11 @@
-import {Dispatch} from "redux";
+import { Dispatch } from "redux";
 import * as axios from "../api/api";
-import {FormType} from "../types";
+import { MyFormType, FormType } from "../types";
 
-enum constants { SUBMITFORM}
+enum constants { SUBMITFORM }
 
 let defaultState = {
-    loading:false
+    loading: false
 }
 
 interface SUBMITFORMACTYPE {
@@ -13,7 +13,7 @@ interface SUBMITFORMACTYPE {
     data: FormType
 }
 
-export const SUBMITFORMAC = (data: FormType):SUBMITFORMACTYPE => ({
+export const SUBMITFORMAC = (data: FormType): SUBMITFORMACTYPE => ({
     type: constants.SUBMITFORM,
     data
 })
@@ -21,7 +21,7 @@ export const SUBMITFORMAC = (data: FormType):SUBMITFORMACTYPE => ({
 type actionType = SUBMITFORMACTYPE
 
 const form = (state = defaultState, action: actionType) => {
-    let stateCopy = {...state}
+    let stateCopy = { ...state }
     switch (action.type) {
         case constants.SUBMITFORM:
             console.log("Пока вё работае")
@@ -31,7 +31,7 @@ const form = (state = defaultState, action: actionType) => {
     }
 }
 
-export const SendResume = (data: FormType) => {
+export const SendResume = (data: MyFormType) => {
     return async (dispatch: Dispatch<actionType>) => {
         await axios.createResume(data)
     }

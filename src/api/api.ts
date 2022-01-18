@@ -1,11 +1,11 @@
 import axios from "axios";
-import { FormType } from '../types'
+import { FormType, MyFormType } from '../types'
 
 const instace = axios.create({
     baseURL: "http://localhost:8000/"
 })
 
-export const createResume = (resume: FormType) => (
+export const createResume = (resume: MyFormType) => (
     instace.post("resume", resume))
 
 export const getResumes = async () => (
