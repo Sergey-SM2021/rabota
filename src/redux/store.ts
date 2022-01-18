@@ -3,11 +3,13 @@ import employee from './employee'
 import employer from './employer'
 import thunk from 'redux-thunk'
 import form from './form'
+import myResume from './myResume'
 
 const reducers = combineReducers({
     employee,
     employer,
-    form
+    form,
+    myResume
 })
 
 let store = createStore(reducers,applyMiddleware(thunk))
