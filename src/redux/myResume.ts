@@ -1,4 +1,6 @@
+import { Dispatch } from 'redux';
 import { FormType } from './../types';
+import * as axios from '../api/api'
 
 enum constants {
     SETRESUME = "SETRESUME"
@@ -36,5 +38,12 @@ const Reducer = (state = initialState, action: actionType) => {
             return stateCopy
     }
 }
+
+export const getResume = (resume:FormType) => (
+    ( dispatch : Dispatch<actionType> ) => {
+        // axios.getResume
+    }
+)
+
 
 export default Reducer
