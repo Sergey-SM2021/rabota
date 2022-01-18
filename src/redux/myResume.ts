@@ -1,17 +1,17 @@
 import { FormType } from './../types';
 
 enum constants {
-    SETRESUME
+    SETRESUME = "SETRESUME"
 }
 
 let initialState: FormType = {
     _id: "ghbd9hher78w78wee8932",
-    data: "Php developer",
+    data: "С# developer",
     experience: "есть",
-    name: "Александр",
+    name: "Арсений",
     number: "+79168518338",
-    skills: ["Java", "Php", "mySQL"],
-    surename: "Ткачёв"
+    skills: ["С#", ".Net", "mySQL"],
+    surename: "Пискарёв"
 }
 
 interface IsetResume {
@@ -19,17 +19,21 @@ interface IsetResume {
     type: constants.SETRESUME
 }
 
-export const setResume = (resume: FormType): IsetResume => ({
-    resume: resume,
-    type: constants.SETRESUME
-})
+export const setResume = (resume: FormType): IsetResume => {
+    return ({
+        resume: resume,
+        type: constants.SETRESUME
+    })
+}
 
 type actionType = IsetResume
 
 const Reducer = (state = initialState, action: actionType) => {
+    debugger
     let stateCopy = { ...state }
     switch (action.type) {
         case constants.SETRESUME:
+            debugger
             return stateCopy
         default:
             return stateCopy
