@@ -19,21 +19,18 @@ interface IsetResume {
     type: constants.SETRESUME
 }
 
-export const setResume = (resume: FormType): IsetResume => {
-    return ({
-        resume: resume,
-        type: constants.SETRESUME
-    })
-}
+export const setResume = (resume: FormType): IsetResume => ({
+    resume: resume,
+    type: constants.SETRESUME
+})
 
 type actionType = IsetResume
 
 const Reducer = (state = initialState, action: actionType) => {
-    debugger
     let stateCopy = { ...state }
     switch (action.type) {
         case constants.SETRESUME:
-            debugger
+            stateCopy = action.resume
             return stateCopy
         default:
             return stateCopy
