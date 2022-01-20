@@ -1,6 +1,6 @@
 import { Route, Routes, NavLink } from 'react-router-dom';
 import { FC } from 'react'
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu } from 'antd';
 
 import Employee from './components/Employee/Employee'
 import Employer from './components/Employer/Employer'
