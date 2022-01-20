@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { SendResume } from "../../redux/form";
 import * as selectors from '../../redux/selectors'
+import { Button } from 'antd';
 
 const Resume = () => {
     const formIsToggle = useSelector(selectors.formIsToggle)
@@ -90,10 +91,10 @@ const Resume = () => {
                     <Block>
                         <FieldArray name={'skills'} render={(helpers) => (<div>
                             <div>Навыки
-                                <button type={"button"} onClick={() => {
+                                <Button type={"link"} onClick={() => {
                                     helpers.push("")
                                 }}>Добавить
-                                </button>
+                                </Button>
                             </div>
                             {
                                 values.skills.map((el, index) => (<Block>
@@ -115,6 +116,7 @@ const Resume = () => {
         />
     </>)
 }
+
 const ErrorMessage = styled.div`
     color: #ff0000;
 `

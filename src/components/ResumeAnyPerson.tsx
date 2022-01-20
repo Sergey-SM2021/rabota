@@ -2,9 +2,8 @@ import { Card } from 'antd'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useParams } from 'react-router-dom'
-import styled from 'styled-components'
-import { getResume } from '../redux/myResume'
 
+import { getResume } from '../redux/myResume'
 import * as selectors from '../redux/selectors'
 
 const ResumeAnyPerson = () => {
