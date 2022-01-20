@@ -1,16 +1,12 @@
 import { Dispatch } from "redux";
+
 import * as axios from "../api/api";
 import { IForm } from "../types";
 
 enum constants { SUBMITFORM = "SUBMITFORM", TOGGALE = "TOGGALE" }
 
 let defaultState = {
-    loading: true
-}
-
-interface SUBMITFORMACTYPE {
-    type: constants.SUBMITFORM,
-    data: IForm
+    loading: false
 }
 
 interface ItoggleLoading {
@@ -21,7 +17,7 @@ const toggleLoading = (): ItoggleLoading => ({
     type: constants.TOGGALE,
 })
 
-type actionType = SUBMITFORMACTYPE | ItoggleLoading
+type actionType = ItoggleLoading
 
 const form = (state = defaultState, action: actionType) => {
     let stateCopy = { ...state }
@@ -40,6 +36,7 @@ export const SendResume = (data: IForm) => {
         await axios.createResume(data)
         setTimeout(() => {
             dispatch(toggleLoading())
+            alert("Резюме было созданно")
         }, 5000)
     }
 }

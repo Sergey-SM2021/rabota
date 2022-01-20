@@ -5,17 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { SendResume } from "../../redux/form";
 import * as selectors from '../../redux/selectors'
 
-const Loader = () => {
-    return (<Container>Loader</Container>)
-}
-
-const Container = styled.div`
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    /* background: #456; */
-`
-
 const Resume = () => {
     const formIsToggle = useSelector(selectors.formIsToggle)
     const dispatch = useDispatch()
@@ -72,7 +61,7 @@ const Resume = () => {
                 experience: "",
             }}
             render={({ values, errors, touched }) => (<>
-                {formIsToggle ? <Loader /> : null}
+                {formIsToggle ? <div>Loading...</div> : null}
                 <Form>
                     <Block>
                         {touched.name && errors.name ? <ErrorMessage>*{errors.name}</ErrorMessage> : <div>Имя</div>}

@@ -1,41 +1,36 @@
-import { Route, Routes } from 'react-router-dom';
-import Header from './components/Header/Header'
+import { Route, Routes, NavLink } from 'react-router-dom';
+import { FC } from 'react'
+import { Layout, Menu, Breadcrumb } from 'antd';
+
 import Employee from './components/Employee/Employee'
 import Employer from './components/Employer/Employer'
 import Createresume from './components/Createresume/Form1'
 import Auth from './components/Auth/Auth'
 import ResumeAnyPerson from './components/ResumeAnyPerson'
-import styled from 'styled-components'
-import {FC} from 'react'
 
+const { Header, Content } = Layout;
 
-function App() {
-  return (<>
-    <Header />
-    <Bg>
-      <Container>
-          <Routes>
-            <Route path="/employer" element={<Employer />} />
-            <Route path="/employer/:id" element={<ResumeAnyPerson />} />
-            <Route path="*" element={<Employee />} />
-            <Route path="/createresume" element={<Createresume />} />
-            <Route path="/auth" element={<Auth />} />
-          </Routes>
-      </Container>
-    </Bg>
-  </>)
+const App: FC = () => {
+  return (<Layout className="layout">
+    <Header>
+      <div className="logo" />
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+        <Menu.Item><NavLink to={"employer"}>Employer</NavLink></Menu.Item>
+        <Menu.Item><NavLink to={"employee"}>Employee</NavLink></Menu.Item>
+      </Menu>
+    </Header>
+    <Content style={{ padding: '0 50px' }}>
+      <div className="site-layout-content">
+        <Routes>
+          <Route path="/employer" element={<Employer />} />
+          <Route path="/employer/:id" element={<ResumeAnyPerson />} />
+          <Route path="*" element={<Employee />} />
+          <Route path="/createresume" element={<Createresume />} />
+          <Route path="/auth" element={<Auth />} />
+        </Routes>
+      </div>
+    </Content>
+  </Layout>)
 }
 
-const Bg = styled.div`
-    background: #eeeeee;
-`
-
-let Container = styled.div`
-    position: absolute;
-    width: 930px;
-    margin: 0px auto;
-    display: flex;
-    flex-direction: column;
-`
-
-export default App;
+export default App
