@@ -3,18 +3,20 @@ import { IForm, IResume } from './../types';
 import axios from "axios";
 
 const instace = axios.create({
-    baseURL: "http://localhost:8000/"
+    baseURL: "http://localhost:8000/resume/"
 })
 
 export const createResume = (resume: IForm) => (
-    instace.post("resume", resume))
+    instace.post("create", resume))
 
-export const getResumes = async () => (
-    (await instace.get<Array<IResume>>("resumes")).data
-)
+export const getResumes = async (page: number, count: number) => {
+    return (
+        (await instace.get<Array<IResume>>(`find?page=${page}&count=${count}`)).data
+    )
+}
 
 export const getResume = async (id: string) => {
     console.log(`resume/${id}`)
-    return ((await instace.get<IResume>(`resume/${id}`)).data)
+    return ((await instace.get<IResume>(`findById/${id}`)).data)
 }
 

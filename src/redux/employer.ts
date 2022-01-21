@@ -40,9 +40,9 @@ const employer = (state = defState, action: actionTypes) => {
     return state
 }
 
-export const getResumesTC = () => {
+export const getResumesTC = (page:number,count:number) => {
     return async (dispatch: Dispatch<actionTypes>) => {
-        const Resumes = await axios.getResumes()
+        const Resumes = await axios.getResumes(page,count)
         dispatch(setResumesAC(Resumes))
     }
 }
