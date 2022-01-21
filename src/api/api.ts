@@ -11,7 +11,7 @@ export const createResume = (resume: IForm) => (
 
 export const getResumes = async (page: number, count: number) => {
     return (
-        (await instace.get<Array<IResume>>(`find?page=${page}&count=${count}`)).data
+        (await instace.get<{ resumes: Array<IResume>, totalCount: number }>(`find?page=${page}&count=${count}`)).data
     )
 }
 

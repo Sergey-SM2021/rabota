@@ -2,23 +2,44 @@ import { Dispatch } from "redux"
 import * as axios from "../api/api"
 import { IResume } from "../types"
 
-enum CONSTANTS { "SETRESUMES" }
+enum CONSTANTS {
+    SETRESUMES = "SETRESUMES",
+    SETtotalCountCOUNT = "SETtotalCountCOUNT"
+}
 
-let defState: Array<IResume> = [
-    {
-        name: "Сергий",
-        _id:"678fff",
-        surename: "Кузнецов",
-        number: "89168518338",
-        data: "Начинающий frontend developer",
-        skills: ["JavaScript", "css&html", "react&redux"],
-        experience: "есть"
-    }
-]
+interface IIntialState {
+    totalCountCount: number,
+    resumes: Array<IResume>
+}
+
+let defState: IIntialState = {
+    resumes: [
+        {
+            name: "Сергий",
+            _id: "678fff",
+            surename: "Кузнецов",
+            number: "89168518338",
+            data: "Начинающий frontend developer",
+            skills: ["JavaScript", "css&html", "react&redux"],
+            experience: "есть"
+        }
+    ],
+    totalCountCount: 7
+}
+
+interface ISettotalCountCount {
+    totalCountCount: number
+    type: CONSTANTS.SETtotalCountCOUNT
+}
+
+const settotalCountCount = (totalCountCount: number): ISettotalCountCount => ({
+    totalCountCount,
+    type: CONSTANTS.SETtotalCountCOUNT
+})
 
 interface setResumesType {
     type: CONSTANTS.SETRESUMES,
-    data:Array<IResume>
+    data: Array<IResume>
 }
 
 const setResumesAC = (data: Array<IResume>): setResumesType => ({
@@ -26,13 +47,16 @@ const setResumesAC = (data: Array<IResume>): setResumesType => ({
     data
 })
 
-type actionTypes = setResumesType
+type actionTypes = setResumesType | ISettotalCountCount
 
 const employer = (state = defState, action: actionTypes) => {
-    let statecopy = [...defState]
+    let statecopy = { ...state}
     switch (action.type) {
         case CONSTANTS.SETRESUMES:
-            statecopy = action.data
+            statecopy.resumes = action.data
+            return statecopy
+        case CONSTANTS.SETtotalCountCOUNT:
+            statecopy.totalCountCount = action.totalCountCount
             return statecopy
         default:
             break;
@@ -40,10 +64,11 @@ const employer = (state = defState, action: actionTypes) => {
     return state
 }
 
-export const getResumesTC = (page:number,count:number) => {
+export const getResumesTC = (page: number, count: number) => {
     return async (dispatch: Dispatch<actionTypes>) => {
-        const Resumes = await axios.getResumes(page,count)
-        dispatch(setResumesAC(Resumes))
+        const { resumes, totalCount } = await axios.getResumes(page, count)
+        dispatch(setResumesAC(resumes))
+        dispatch(settotalCountCount(totalCount))
     }
 }
 
