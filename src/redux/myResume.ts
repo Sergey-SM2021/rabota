@@ -3,18 +3,30 @@ import { IResume } from './../types';
 import * as axios from '../api/api'
 
 enum constants {
-    SETRESUME = "SETRESUME"
+    SETRESUME = "SETRESUME",
+    SWITCHLOAD = "SWITCHLOAD",
 }
 
-let initialState: IResume = {
-    _id: "ghbd9hher78w78wee8932",
-    data: "С# developer",
-    experience: "есть",
-    name: "Арсений",
-    number: "+79168518338",
-    skills: ["С#", ".Net", "mySQL"],
-    surename: "Пискарёв"
+let initialState: { Resume: IResume, isLoading: Boolean } = {
+    Resume: {
+        _id: "ghbd9hher78w78wee8932",
+        data: "С# developer",
+        experience: "есть",
+        name: "Арсений",
+        number: "+79168518338",
+        skills: ["С#", ".Net", "mySQL"],
+        surename: "Пискарёв"
+    },
+    isLoading: false
 }
+
+interface ISwitchLoader {
+    type: constants.SWITCHLOAD
+}
+
+const switchLoad = (): ISwitchLoader => ({
+    type: constants.SWITCHLOAD
+})
 
 interface IsetResume {
     resume: IResume,
@@ -26,13 +38,16 @@ const setResume = (resume: IResume): IsetResume => ({
     type: constants.SETRESUME
 })
 
-type actionType = IsetResume
+type actionType = IsetResume | ISwitchLoader
 
 const Reducer = (state = initialState, action: actionType) => {
     let stateCopy = { ...state }
     switch (action.type) {
+        case constants.SWITCHLOAD:
+            stateCopy.isLoading = !stateCopy.isLoading
+            return stateCopy
         case constants.SETRESUME:
-            stateCopy = action.resume
+            stateCopy.Resume = action.resume
             return stateCopy
         default:
             return stateCopy
@@ -41,8 +56,10 @@ const Reducer = (state = initialState, action: actionType) => {
 
 export const getResume = (id: string) => (
     async (dispatch: Dispatch<actionType>) => {
+        dispatch(switchLoad())
         const Resumes = await axios.getResume(id)
         dispatch(setResume(Resumes))
+        dispatch(switchLoad())
     }
 )
 

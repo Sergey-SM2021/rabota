@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux'
 import Resume from './Resume'
-import { getResumes, gettotalCountCount } from '../../redux/selectors'
+import { ResumesApi } from '../../redux/selectors'
 
 import { getResumesTC } from '../../redux/employer'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { Input, Pagination } from 'antd'
+import { Input, Pagination, Spin } from 'antd'
 
 const { Search } = Input
 
@@ -18,22 +18,22 @@ const Employer = () => {
     };
 
     const dispatch = useDispatch()
-    let totalCountCaunt = useSelector(gettotalCountCount)
+    let totalCount = useSelector(ResumesApi.gettotalCountCount)
 
     const search = (value: string) => {
-        console.log(totalCountCaunt)
+        console.log(totalCount)
     };
 
-    let resumes = useSelector(getResumes)
+    let resumes = useSelector(ResumesApi.getResumes)
+    let isLoading = useSelector(ResumesApi.checkLoading)
     let loc = useLocation().pathname
     useEffect(() => {
-        alert("loading...")
-        dispatch(getResumesTC(pageSize,count))
+        dispatch(getResumesTC(pageSize, count))
     }, [loc])
     return (<>
         <Search onSearch={search} />
-        {resumes.map((el) => (<Resume {...el} />))}
-        <Pagination defaultCurrent={count} defaultPageSize={pageSize} total={totalCountCaunt} onChange={MyPagination} />
+        {isLoading ? <Spin size='large' /> : resumes.map((el) => (<Resume {...el} />))}
+        <Pagination defaultCurrent={count} defaultPageSize={pageSize} total={totalCount} onChange={MyPagination} />
     </>)
 }
 

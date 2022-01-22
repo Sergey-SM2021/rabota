@@ -1,13 +1,13 @@
 import { Field, Formik, Form, FieldArray } from 'formik'
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux"
 
 import { SendResume } from "../../redux/form";
-import * as selectors from '../../redux/selectors'
-import { Button } from 'antd';
+import { formApi } from '../../redux/selectors'
+import { Button } from 'antd'
 
 const Resume = () => {
-    const formIsToggle = useSelector(selectors.formIsToggle)
+    const formIsToggle = useSelector(formApi.formIsToggle)
     const dispatch = useDispatch()
 
     interface ErrorType {

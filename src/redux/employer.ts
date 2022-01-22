@@ -4,12 +4,14 @@ import { IResume } from "../types"
 
 enum CONSTANTS {
     SETRESUMES = "SETRESUMES",
-    SETtotalCountCOUNT = "SETtotalCountCOUNT"
+    SETtotalCountCOUNT = "SETtotalCountCOUNT",
+    SWITCHPRELOADER = "SWITCHPRELOADER"
 }
 
 interface IIntialState {
     totalCountCount: number,
-    resumes: Array<IResume>
+    resumes: Array<IResume>,
+    loading: boolean
 }
 
 let defState: IIntialState = {
@@ -24,7 +26,8 @@ let defState: IIntialState = {
             experience: "есть"
         }
     ],
-    totalCountCount: 7
+    totalCountCount: 7,
+    loading: false
 }
 
 interface ISettotalCountCount {
@@ -47,16 +50,27 @@ const setResumesAC = (data: Array<IResume>): setResumesType => ({
     data
 })
 
-type actionTypes = setResumesType | ISettotalCountCount
+interface IswitchPreloader {
+    type: CONSTANTS.SWITCHPRELOADER,
+}
+
+const switchPreloader = (): IswitchPreloader => ({
+    type: CONSTANTS.SWITCHPRELOADER
+})
+
+type actionTypes = setResumesType | ISettotalCountCount | IswitchPreloader
 
 const employer = (state = defState, action: actionTypes) => {
-    let statecopy = { ...state}
+    let statecopy = { ...state }
     switch (action.type) {
         case CONSTANTS.SETRESUMES:
             statecopy.resumes = action.data
             return statecopy
         case CONSTANTS.SETtotalCountCOUNT:
             statecopy.totalCountCount = action.totalCountCount
+            return statecopy
+        case CONSTANTS.SWITCHPRELOADER:
+            statecopy.loading = !statecopy.loading
             return statecopy
         default:
             break;
@@ -66,9 +80,11 @@ const employer = (state = defState, action: actionTypes) => {
 
 export const getResumesTC = (page: number, count: number) => {
     return async (dispatch: Dispatch<actionTypes>) => {
+        dispatch(switchPreloader())
         const { resumes, totalCount } = await axios.getResumes(page, count)
         dispatch(setResumesAC(resumes))
         dispatch(settotalCountCount(totalCount))
+        dispatch(switchPreloader())
     }
 }
 

@@ -1,19 +1,29 @@
-import { RootType } from './store';
+import { RootType } from './store'
 
-export const getResumes = (state: RootType) => {
-    return (
-        state.employer.resumes
-    )
+export const ResumesApi = {
+    getResumes(state: RootType) {
+        return (state.employer.resumes)
+    },
+
+    gettotalCountCount(state: RootType) {
+        return (state.employer.totalCountCount)
+    },
+    checkLoading(state: RootType) {
+        return (state.employer.loading)
+    },
 }
 
-export const getResume = (state: RootType) => (
-    state.myResume
-)
+export const ResumeApi = {
+    getResume(state: RootType) {
+        return state.myResume.Resume
+    },
+    isLoading(state: RootType){
+        return state.myResume.isLoading
+    }
+}
 
-export const formIsToggle = (state: RootType) => (
-    state.form.loading
-)
-
-export const gettotalCountCount = (state: RootType) => (
-    state.employer.totalCountCount
-)
+export const formApi = {
+    formIsToggle(state: RootType) {
+        return state.form.loading
+    },
+}
