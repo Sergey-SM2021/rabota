@@ -7,6 +7,7 @@ import Employer from './components/Employer/Employer'
 import Createresume from './components/Createresume/Form1'
 import Auth from './components/Auth/Auth'
 import ResumeAnyPerson from './components/ResumeAnyPerson'
+import VacanceForm from './components/VacanceForm/VacanceForm'
 
 const { Header, Content } = Layout;
 
@@ -22,6 +23,7 @@ const App: FC = () => {
     <Content style={{ padding: '0 50px' }}>
       <div className="site-layout-content">
         <Routes>
+          <Route path="newvacance" element={<VacanceForm />}/>
           <Route path="/employer" element={<Employer />} />
           <Route path="/employer/:id" element={<ResumeAnyPerson />} />
           <Route path="*" element={<Employee />} />
