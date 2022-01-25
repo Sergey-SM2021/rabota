@@ -2,13 +2,16 @@ import { Dispatch } from "redux"
 import { Vacance } from "../api/api"
 import { IVacance } from "./newVacance"
 
-enum CONSTANTS { SETVACANCE = "SETVACANCE" }
+enum CONSTANTS {
+    SETVACANCE = "SETVACANCE",
+    SWITCH = "SWITCH"
+}
 
 interface IinitialState {
     isLoading: boolean,
     vacance: Array<{
-        skills: Array<String>,
-        vacance: String,
+        skills: Array<string>,
+        vacance: string,
         price: number,
         description: string
     }>
@@ -24,6 +27,14 @@ const initialState: IinitialState = {
     }]
 }
 
+interface switchLoader {
+    type: CONSTANTS.SWITCH
+}
+
+const switchLoader = (): switchLoader => ({
+    type: CONSTANTS.SWITCH
+})
+
 interface IsetVacance {
     arrOfVacance: Array<IVacance>,
     type: CONSTANTS.SETVACANCE,
@@ -34,11 +45,14 @@ const setVacance = (arrOfVacance: Array<IVacance>): IsetVacance => ({
     arrOfVacance
 })
 
-type actionType = IsetVacance
+type actionType = IsetVacance | switchLoader
 
 const vacanceReducer = (state = initialState, action: actionType) => {
     let stateCopy = { ...state }
     switch (action.type) {
+        case CONSTANTS.SWITCH:
+            stateCopy.isLoading = !stateCopy.isLoading
+            return stateCopy
         case CONSTANTS.SETVACANCE:
             stateCopy.vacance = action.arrOfVacance
             return stateCopy
@@ -49,8 +63,10 @@ const vacanceReducer = (state = initialState, action: actionType) => {
 
 export const getVacance = () => (
     async (dispatch: Dispatch<actionType>) => {
+        dispatch(switchLoader())
         const vacance = await Vacance.getVacance()
         dispatch(setVacance(vacance))
+        dispatch(switchLoader())
     }
 )
 

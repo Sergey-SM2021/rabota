@@ -32,4 +32,7 @@ export const VacanceApi = {
     getVacance(state: RootType) {
         return (state.employee.vacance)
     },
+    isLoading(state: RootType){
+        return state.employee.isLoading
+    }
 }
