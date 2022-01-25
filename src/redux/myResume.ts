@@ -57,7 +57,7 @@ const Reducer = (state = initialState, action: actionType) => {
 export const getResume = (id: string) => (
     async (dispatch: Dispatch<actionType>) => {
         dispatch(switchLoad())
-        const Resumes = await axios.getResume(id)
+        const Resumes = await axios.Resume.getResume(id)
         dispatch(setResume(Resumes))
         dispatch(switchLoad())
     }

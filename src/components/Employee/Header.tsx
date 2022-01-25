@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom'
 const Header = () => {
     let nav = useNavigate()
     return (<Container>
-            <Button onClick={() => { nav("/createresume") }}>Создать резюме</Button>
-            <Button onClick={() => { nav("/auth") }}>Войти</Button>
+            <Button >Создать резюме</Button>
+           
         </Container>)
 }
 

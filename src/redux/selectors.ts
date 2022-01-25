@@ -17,7 +17,7 @@ export const ResumeApi = {
     getResume(state: RootType) {
         return state.myResume.Resume
     },
-    isLoading(state: RootType){
+    isLoading(state: RootType) {
         return state.myResume.isLoading
     }
 }
@@ -25,5 +25,11 @@ export const ResumeApi = {
 export const formApi = {
     formIsToggle(state: RootType) {
         return state.form.loading
+    },
+}
+
+export const VacanceApi = {
+    getVacance(state: RootType) {
+        return (state.employee.vacance)
     },
 }

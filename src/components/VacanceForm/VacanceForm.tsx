@@ -1,13 +1,21 @@
 import { FC } from 'react'
 import { Field, FieldArray, Form, Formik } from 'formik'
 import { Button } from 'antd'
+import { useDispatch } from 'react-redux'
+import { vacanceSubmit } from '../../redux/newVacance'
 
 const VacanceForm: FC = () => {
+    const dispatch = useDispatch()
+
+    const handleSubmit = (value: any) => {
+        dispatch(vacanceSubmit(value))
+    }
+
     return <div>
         <Formik
             initialValues={{ skills: ["", ""], vacance: "", price: 0, description: "" }}
             validate={() => { }}
-            onSubmit={(values) => { alert(JSON.stringify(values)) }}>
+            onSubmit={handleSubmit}>
             {({ values }) => (<>
                 <h2>Создать вакансию</h2>
                 <Form>

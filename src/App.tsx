@@ -18,6 +18,7 @@ const App: FC = () => {
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
         <Menu.Item><NavLink to={"employer"}>Employer</NavLink></Menu.Item>
         <Menu.Item><NavLink to={"employee"}>Employee</NavLink></Menu.Item>
+        <Menu.Item><NavLink to={"auth"}>Войти</NavLink></Menu.Item>
       </Menu>
     </Header>
     <Content style={{ padding: '0 50px' }}>

@@ -33,7 +33,7 @@ const form = (state = defaultState, action: actionType) => {
 export const SendResume = (data: IForm) => {
     return async (dispatch: Dispatch<actionType>) => {
         dispatch(toggleLoading())
-        await axios.createResume(data)
+        await axios.Resume.createResume(data)
         setTimeout(() => {
             dispatch(toggleLoading())
             alert("Резюме было созданно")

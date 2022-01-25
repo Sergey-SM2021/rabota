@@ -81,7 +81,7 @@ const employer = (state = defState, action: actionTypes) => {
 export const getResumesTC = (page: number, count: number) => {
     return async (dispatch: Dispatch<actionTypes>) => {
         dispatch(switchPreloader())
-        const { resumes, totalCount } = await axios.getResumes(page, count)
+        const { resumes, totalCount } = await axios.Resume.getResumes(page, count)
         dispatch(setResumesAC(resumes))
         dispatch(settotalCountCount(totalCount))
         dispatch(switchPreloader())
