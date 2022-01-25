@@ -4,17 +4,17 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useParams } from 'react-router-dom'
 
 import { getResume } from '../redux/myResume'
-import { ResumeApi } from '../redux/selectors'
+import * as selector from '../redux/selectors'
 
 const ResumeAnyPerson = () => {
-  let isLoading = useSelector(ResumeApi.isLoading)
+  let isLoading = useSelector(selector.Resume.isLoading)
   const loc = useLocation()
   const dispatch = useDispatch()
   const { id } = useParams()
   useEffect(() => {
     dispatch(getResume(id!))
   }, [loc])
-  let { name, surename, ...state } = useSelector(ResumeApi.getResume)
+  let { name, surename, ...state } = useSelector(selector.Resume.getResume)
   return (<>
     {
       isLoading ? <Spin size='large' /> : <Card>

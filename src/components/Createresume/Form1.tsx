@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux"
 
 import { SendResume } from "../../redux/form";
-import { formApi } from '../../redux/selectors'
+import * as selecor from '../../redux/selectors'
 import { Button } from 'antd'
 
 const Resume = () => {
-    const formIsToggle = useSelector(formApi.formIsToggle)
+    const formIsToggle = useSelector(selecor.Form.formIsToggle)
     const dispatch = useDispatch()
 
     interface ErrorType {

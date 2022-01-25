@@ -1,6 +1,6 @@
 import { RootType } from './store'
 
-export const ResumesApi = {
+export const Resumes = {
     getResumes(state: RootType) {
         return (state.employer.resumes)
     },
@@ -13,7 +13,7 @@ export const ResumesApi = {
     },
 }
 
-export const ResumeApi = {
+export const Resume = {
     getResume(state: RootType) {
         return state.myResume.Resume
     },
@@ -22,17 +22,17 @@ export const ResumeApi = {
     }
 }
 
-export const formApi = {
+export const Form = {
     formIsToggle(state: RootType) {
         return state.form.loading
     },
 }
 
-export const VacanceApi = {
+export const Vacance = {
     getVacance(state: RootType) {
         return (state.employee.vacance)
     },
-    isLoading(state: RootType){
+    isLoading(state: RootType) {
         return state.employee.isLoading
-    }
+    },
 }

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import Resume from './Resume'
-import { ResumesApi } from '../../redux/selectors'
+import * as selector from '../../redux/selectors'
 
 import { getResumesTC } from '../../redux/employer'
 import { useEffect } from 'react'
@@ -10,9 +10,9 @@ import { Button, Input, Pagination, Spin } from 'antd'
 const { Search } = Input
 
 const Employer = () => {
-    let resumes = useSelector(ResumesApi.getResumes)
-    let isLoading = useSelector(ResumesApi.checkLoading)
-    let totalCount = useSelector(ResumesApi.gettotalCountCount)
+    let resumes = useSelector(selector.Resumes.getResumes)
+    let isLoading = useSelector(selector.Resumes.checkLoading)
+    let totalCount = useSelector(selector.Resumes.gettotalCountCount)
     let nav = useNavigate()
     let loc = useLocation().pathname
     const dispatch = useDispatch()
@@ -32,9 +32,9 @@ const Employer = () => {
     }, [loc])
 
     return (<>
-        <Search style={{marginTop:10,marginBottom:10}} onSearch={search} />
-        <Button onClick={()=>{nav("/newvacance")}} type='primary'>Добавить вакансию</Button>
-        {isLoading ? <Spin size='large' /> : resumes.map((el) => (<Resume {...el} />))}
+        <Search style={{ marginTop: 10, marginBottom: 10 }} onSearch={search} />
+        <Button onClick={() => { nav("/newvacance") }} type='primary'>Добавить вакансию</Button>
+        {isLoading ? <div><Spin size='large' /></div> : resumes.map((el) => (<Resume {...el} />))}
         <Pagination defaultCurrent={count} defaultPageSize={pageSize} total={totalCount} onChange={MyPagination} />
     </>)
 }
