@@ -1,14 +1,16 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Button, Card } from 'antd'
-import { IVacance } from '../../redux/newVacance'
+import { useNavigate } from 'react-router-dom'
+import { IVacance } from '../../types'
 
 const Vacance: FC<IVacance> = ({ vacance, description, price, skills }) => {
-    return (<Card style={{marginTop:10,marginBottom:10}}>
+    const nav = useNavigate()
+    return (<Card style={{ marginTop: 10, marginBottom: 10 }}>
         <h3>{vacance}</h3>
         <div>{description}</div>
         <div>Оплата:{price}</div>
         <div>{skills.map((el) => (<div>*{el}</div>))}</div>
-        <Button type='primary'>Откликнуться</Button>
+        <Button onClick={()=>{nav("/")}} type='primary'>Откликнуться</Button>
     </Card>)
 }
 

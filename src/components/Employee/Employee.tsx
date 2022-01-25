@@ -18,14 +18,15 @@ const Employee = () => {
     }, [loc])
     const Vacances = useSelector(selector.Vacance.getVacance)
     const isLoading = useSelector(selector.Vacance.isLoading)
+    const TotalCount = useSelector(selector.Vacance.getTotalCount)
 
     return (<>
-        <Search style={{marginTop:10,marginBottom:10}}/>
+        <Search style={{ marginTop: 10, marginBottom: 10 }} />
         <Button onClick={() => { nav("/createresume") }} type='primary'>Создать резюме</Button>
         <>
             {isLoading ? <div><Spin size='large'></Spin></div> : Vacances.map((el) => (<Vacance {...el} />))}
         </>
-        <Pagination /> 
+        <Pagination onChange={()=>{}} defaultPageSize={2} defaultCurrent={1} total={TotalCount} />
     </>)
 }
 

@@ -35,4 +35,7 @@ export const Vacance = {
     isLoading(state: RootType) {
         return state.employee.isLoading
     },
+    getTotalCount(state: RootType){
+        return state.employee.maxCount
+    }
 }

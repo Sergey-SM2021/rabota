@@ -1,5 +1,5 @@
 export interface IResume {
-        _id: string ,
+        _id: string,
         name: string,
         surename: string,
         number: string,
@@ -15,4 +15,14 @@ export interface IForm {
         skills: Array<string>,
         data: string,
         experience: string
+}
+
+export type INewVacance = Omit<IVacance, "_id">
+
+export interface IVacance {
+        _id: string,
+        skills: Array<string>,
+        vacance: string,
+        price: number,
+        description: string,
 }
