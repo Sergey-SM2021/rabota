@@ -4,13 +4,16 @@ import { IVacance } from "../types"
 
 enum CONSTANTS {
     SETVACANCE = "SETVACANCE",
-    SWITCH = "SWITCH"
+    SWITCH = "SWITCH",
+    SETTOTALCOUNT = "SETTOTALCOUNT",
+    SETERRORS = "SETERRORS"
 }
 
 interface IinitialState {
     isLoading: boolean,
     vacance: Array<IVacance>,
-    maxCount:number
+    maxCount: number,
+    errors: string
 }
 
 const initialState: IinitialState = {
@@ -20,10 +23,21 @@ const initialState: IinitialState = {
         price: 120,
         skills: ["Js", "Ts"],
         vacance: "Frontend-Developer",
-        _id:"klsdklfkl77hhb43h4jh4hjh5njn"
+        _id: "klsdklfkl77hhb43h4jh4hjh5njn"
     }],
-    maxCount: 20
+    maxCount: 20,
+    errors: ""
 }
+
+interface ISetErrors {
+    type: CONSTANTS.SETERRORS,
+    errors: string
+}
+
+const SetErrors = (errors:string):ISetErrors => ({
+    type: CONSTANTS.SETERRORS,
+    errors
+})
 
 interface switchLoader {
     type: CONSTANTS.SWITCH
@@ -33,37 +47,60 @@ const switchLoader = (): switchLoader => ({
     type: CONSTANTS.SWITCH
 })
 
+interface IsetTotalCount {
+    type: CONSTANTS.SETTOTALCOUNT,
+    totalCount: number
+}
+
+const setTotleCount = (totalCount: number): IsetTotalCount => ({
+    type: CONSTANTS.SETTOTALCOUNT,
+    totalCount
+})
+
 interface IsetVacance {
     arrOfVacance: Array<IVacance>,
     type: CONSTANTS.SETVACANCE,
 }
 
-const setVacance = (arrOfVacance: Array<IVacance>): IsetVacance => ({
-    type: CONSTANTS.SETVACANCE,
-    arrOfVacance
-})
+const setVacance = (arrOfVacance: Array<IVacance>): IsetVacance => {
+    debugger; return ({
+        type: CONSTANTS.SETVACANCE,
+        arrOfVacance
+    })
+}
 
-type actionType = IsetVacance | switchLoader
+type actionType = IsetVacance | switchLoader | IsetTotalCount | ISetErrors
 
 const vacanceReducer = (state = initialState, action: actionType) => {
     let stateCopy = { ...state }
     switch (action.type) {
+        case CONSTANTS.SETTOTALCOUNT:
+            stateCopy.maxCount = action.totalCount
+            return stateCopy
         case CONSTANTS.SWITCH:
             stateCopy.isLoading = !stateCopy.isLoading
             return stateCopy
         case CONSTANTS.SETVACANCE:
             stateCopy.vacance = action.arrOfVacance
             return stateCopy
+        case CONSTANTS.SETERRORS:
+            stateCopy.errors = action.errors
+            return stateCopy
         default:
             return stateCopy
     }
 }
 
-export const getVacance = () => (
+export const getVacance = (page: number = 1, pageSize: number = 2) => (
     async (dispatch: Dispatch<actionType>) => {
         dispatch(switchLoader())
-        const vacance = await Vacance.getVacance()
-        dispatch(setVacance(vacance))
+        try {
+            const vacanceObj = await Vacance.getVacance(page, pageSize)
+            dispatch(setTotleCount(vacanceObj.totalCount))
+            dispatch(setVacance(vacanceObj.vacanses))
+        }catch (e:any) {
+            dispatch(SetErrors(e))
+        }
         dispatch(switchLoader())
     }
 )

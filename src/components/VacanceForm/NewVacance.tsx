@@ -12,7 +12,7 @@ const VacanceForm: FC = () => {
             initialValues={{ skills: ["", ""], vacance: "", price: 0, description: "" }}
             validate={() => { }}
             onSubmit={(values, actions) => {
-                dispatch(vacanceSubmit(values))
+                // dispatch(vacanceSubmit(values))
                 actions.resetForm()
             }}>
             {({ values }) => (<>
@@ -23,7 +23,7 @@ const VacanceForm: FC = () => {
                     <h4>Ставка</h4>
                     <div style={{ display: 'inline-block', width: 30 }}>{values.price}</div><Field name={"price"} min={0} max={500} type={"range"} />
                     <h4>Описание</h4>
-                    <Field as={"textArea"} name={"description"} />
+                    <Field as="textarea" name={"description"} />
                     <h4>Навыки:</h4>
                     <FieldArray name='skills'
                         render={(helpers) => (<>

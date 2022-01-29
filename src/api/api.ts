@@ -7,25 +7,45 @@ const instace = axios.create({
 })
 
 export const Resume = {
-    createResume(resume: IForm) {
-        instace.post("resume/create", resume)
+    async createResume(resume: IForm) {
+        try {
+            await instace.post("resume/create", resume)
+        } catch (error) {
+            throw "Не удалось создать резюме"
+        }
     },
     async getResumes(page: number, count: number) {
-        return (
-            (await instace.get<{ resumes: Array<IResume>, totalCount: number }>(`resume/find?page=${page}&count=${count}`)).data
-        )
+        try {
+            return((await instace.get<{ resumes: Array<IResume>, totalCount: number }>(`resume/find?page=${page}&count=${count}`)).data)
+        }
+        catch (e) {
+            throw  "Не удалось загрузить резюме"
+        }
     },
     async getResume(id: string) {
-        return ((await instace.get<IResume>(`resume/findById/${id}`)).data)
+        try {
+            return ((await instace.get<IResume>(`resume/findById/${id}`)).data)
+        }
+        catch (e) {
+            throw "Не удалось загрузить резюме"
+        }
     }
 }
 
 export const Vacance = {
     async createVacance(vacance: INewVacance) {
-        instace.post("/vacance", vacance)
+        try {
+            await instace.post("/vacance/create", vacance)
+        }catch (e) {
+            throw "Не получилось создать вакансию"
+        }
     },
-    async getVacance() {
-        return (await (await instace.get<Array<IVacance>>("/vacance")).data)
+    async getVacance(page: number, pageSize: number) {
+        try {
+            return (await (await instace.get<{vacanses:Array<IVacance>,totalCount:number}>(`/vacance?page=${page}&pageSize=${pageSize}`)).data)
+        }
+        catch (e) {
+            throw "Не удалось получиить вакансии"
+        }
     }
 }
-

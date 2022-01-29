@@ -1,17 +1,20 @@
 import { Dispatch } from "redux"
+
 import * as axios from "../api/api"
 import { IResume } from "../types"
 
 enum CONSTANTS {
     SETRESUMES = "SETRESUMES",
     SETtotalCountCOUNT = "SETtotalCountCOUNT",
-    SWITCHPRELOADER = "SWITCHPRELOADER"
+    SWITCHPRELOADER = "SWITCHPRELOADER",
+    SETERRORS = "SETERRORS"
 }
 
 interface IIntialState {
     totalCountCount: number,
     resumes: Array<IResume>,
-    loading: boolean
+    loading: boolean,
+    errors: string,
 }
 
 let defState: IIntialState = {
@@ -27,8 +30,17 @@ let defState: IIntialState = {
         }
     ],
     totalCountCount: 7,
-    loading: false
+    loading: false,
+    errors: "",
 }
+
+interface ISetErrors {
+    type:CONSTANTS.SETERRORS,
+    message:string
+}
+
+const setErrors = (message:string):ISetErrors =>
+    ({message,type:CONSTANTS.SETERRORS})
 
 interface ISettotalCountCount {
     totalCountCount: number
@@ -58,7 +70,7 @@ const switchPreloader = (): IswitchPreloader => ({
     type: CONSTANTS.SWITCHPRELOADER
 })
 
-type actionTypes = setResumesType | ISettotalCountCount | IswitchPreloader
+type actionTypes = setResumesType | ISettotalCountCount | IswitchPreloader | ISetErrors
 
 const employer = (state = defState, action: actionTypes) => {
     let statecopy = { ...state }
@@ -72,19 +84,28 @@ const employer = (state = defState, action: actionTypes) => {
         case CONSTANTS.SWITCHPRELOADER:
             statecopy.loading = !statecopy.loading
             return statecopy
+        case CONSTANTS.SETERRORS:
+            statecopy.errors = action.message
+            return  statecopy
         default:
             break;
     }
     return state
 }
 
-export const getResumesTC = (page: number, count: number) => {
+export const getResumes = (page = 3, count = 1) => {
     return async (dispatch: Dispatch<actionTypes>) => {
         dispatch(switchPreloader())
-        const { resumes, totalCount } = await axios.Resume.getResumes(page, count)
-        dispatch(setResumesAC(resumes))
-        dispatch(settotalCountCount(totalCount))
-        dispatch(switchPreloader())
+        try {
+            const { resumes, totalCount } = await axios.Resume.getResumes(page, count)
+            dispatch(setResumesAC(resumes))
+            dispatch(settotalCountCount(totalCount))
+        }catch (e:any) {
+            dispatch(setErrors(e))
+        }finally {
+            dispatch(switchPreloader())
+        }
+
     }
 }
 

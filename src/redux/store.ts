@@ -2,7 +2,7 @@ import { applyMiddleware, combineReducers, createStore } from "redux";
 import employee from './employee'
 import employer from './employer'
 import thunk from 'redux-thunk'
-import form from './form'
+import form from './newResume'
 import myResume from './myResume'
 import vacance from './newVacance'
 

@@ -2,11 +2,17 @@ import { Field, Formik, Form, FieldArray } from 'formik'
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux"
 
-import { SendResume } from "../../redux/form";
+import { SendResume } from "../../redux/newResume";
 import * as selecor from '../../redux/selectors'
-import { Button } from 'antd'
+import {Button, Spin} from 'antd'
+import {useEffect} from "react"
+import {useLocation} from "react-router-dom"
+import {ClearState} from "../../redux/newResume"
 
 const Resume = () => {
+    const loc = useLocation().pathname
+    useEffect(()=>(()=>{dispatch(ClearState())}),[])
+    const err = useSelector(selecor.Form.errors)
     const formIsToggle = useSelector(selecor.Form.formIsToggle)
     const dispatch = useDispatch()
 
@@ -62,8 +68,8 @@ const Resume = () => {
                 experience: "",
             }}
             render={({ values, errors, touched }) => (<>
-                {formIsToggle ? <div>Loading...</div> : null}
-                <Form>
+                {formIsToggle ? <div><Spin size={"large"}/></div> : err ? <h2>{err}</h2> :
+                    <Form>
                     <Block>
                         {touched.name && errors.name ? <ErrorMessage>*{errors.name}</ErrorMessage> : <div>Имя</div>}
                         <Field name={"name"} />
@@ -111,7 +117,7 @@ const Resume = () => {
                     <Block>
                         <button type="submit" disabled={formIsToggle}>Заполнить</button>
                     </Block>
-                </Form>
+                </Form>}
             </>)}
         />
     </>)

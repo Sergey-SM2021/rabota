@@ -1,4 +1,5 @@
 import { Dispatch } from 'redux'
+
 import { Vacance } from '../api/api'
 import { INewVacance  } from '../types'
 
@@ -19,7 +20,11 @@ const vacanceReducer = (state = initialState, action: actionType) => {
 
 export const vacanceSubmit = (vacance: INewVacance) => (
     async (dispatch: Dispatch<actionType>) => {
-        await Vacance.createVacance(vacance)
+        try {
+            await Vacance.createVacance(vacance)
+        } catch (e) {
+            alert(e)
+        }
     }
 )
 
