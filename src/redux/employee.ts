@@ -63,7 +63,7 @@ interface IsetVacance {
 }
 
 const setVacance = (arrOfVacance: Array<IVacance>): IsetVacance => {
-    debugger; return ({
+    return ({
         type: CONSTANTS.SETVACANCE,
         arrOfVacance
     })
