@@ -73,31 +73,31 @@ const Resume = () => {
             render={({ values, errors, touched }) => (<>
                 {formIsToggle ? <div><Spin size={"large"}/></div> : err ? <h2>{err}</h2> :
                     <Form>
-                    <div style={{marginTop:10}}>
+                    <div className={scss.block}>
                         {touched.name && errors.name ? <div className={scss.error}>*{errors.name}</div> : <div>Имя</div>}
                         <Field name={"name"} />
                     </div>
-                    <div style={{marginTop:10}}>
+                    <div className={scss.block}>
                         {touched.surename && errors.surename ? <div className={scss.error}>*{errors.surename}</div> :
                             <div>Фамилия</div>}
                         <Field name={"surename"} />
                     </div>
-                    <div style={{marginTop:10}}>
+                    <div className={scss.block}>
                         <div>Номер телефона</div>
                         <Field name={"number"} />
                     </div>
-                    <div style={{marginTop:10}}>
+                    <div className={scss.block}>
                         {touched.data && errors.data ? <div className={scss.error}>*{errors.data}</div> :
                             <div>Укажите специальность</div>}
                         <Field name={"data"} as="textArea" />
                     </div>
-                    <div style={{marginTop:10}}>
+                    <div className={scss.block}>
                         {touched.experience && errors.experience ? <div className={scss.error}>*{errors.experience}</div> :
                             <div>Укажите опыт работы</div>}
                         <div><label>есть<Field value={"есть"} name={"experience"} type={"radio"} /></label></div>
                         <label>нет<Field value={"нет"} name={"experience"} type={"radio"} /></label>
                     </div>
-                    <div style={{marginTop:10}}>
+                    <div className={scss.block}>
                         <FieldArray name={'skills'} render={(helpers) => (<div>
                             <div>Навыки
                                 <Button type={"link"} onClick={() => {
@@ -106,7 +106,7 @@ const Resume = () => {
                                 </Button>
                             </div>
                             {
-                                values.skills.map((el, index) => (<div style={{marginTop:10}}>
+                                values.skills.map((el, index) => (<div className={scss.block}>
                                     <Field name={`skills[${index}]`} />
                                     <button type={"button"} onClick={() => {
                                         helpers.remove(index)
@@ -117,7 +117,7 @@ const Resume = () => {
                             }
                         </div>)} />
                     </div>
-                    <div style={{marginTop:10}}>
+                    <div className={scss.block}>
                         <button type="submit" disabled={formIsToggle}>Заполнить</button>
                     </div>
                 </Form>}
