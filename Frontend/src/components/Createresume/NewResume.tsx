@@ -12,7 +12,7 @@ import scss from './style.module.scss'
 const Resume = () => {
     const nav = useNavigate()
     const loc = useLocation().pathname
-    useEffect(()=>(()=>{dispatch(ClearState())}),[])
+    useEffect(()=>(()=>{dispatch(ClearState())}),[loc])
     const err = useSelector(selecor.Form.errors)
     const formIsToggle = useSelector(selecor.Form.formIsToggle)
     const dispatch = useDispatch()
