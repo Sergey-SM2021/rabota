@@ -6,10 +6,11 @@ import { SendResume } from "../../redux/newResume";
 import * as selecor from '../../redux/selectors'
 import {Button, Spin} from 'antd'
 import {useEffect} from "react"
-import {useLocation} from "react-router-dom"
+import {useLocation, useNavigate} from "react-router-dom"
 import {ClearState} from "../../redux/newResume"
 
 const Resume = () => {
+    const nav = useNavigate()
     const loc = useLocation().pathname
     useEffect(()=>(()=>{dispatch(ClearState())}),[])
     const err = useSelector(selecor.Form.errors)
@@ -56,8 +57,10 @@ const Resume = () => {
 
                 return Error
             }}
-            onSubmit={(values) => {
+            onSubmit={(values,actions) => {
                 dispatch(SendResume(values))
+                actions.resetForm()
+                nav("employee")
             }}
             initialValues={{
                 name: "",

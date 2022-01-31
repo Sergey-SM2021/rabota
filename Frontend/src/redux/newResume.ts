@@ -63,8 +63,10 @@ export const SendResume = (data: IForm) => {
         dispatch(toggleLoading())
         try {
             await axios.Resume.createResume(data)
+            alert("Резюме было создано")
         } catch (error:any) {
             dispatch(setErrors(error))
+            alert("Резюме не было создано")
         }finally {
             dispatch(toggleLoading())
         }
