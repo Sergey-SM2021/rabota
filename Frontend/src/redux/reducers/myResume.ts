@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { IResume } from '../../types';
+import { IResume } from '../../Models/types';
 import * as axios from '../../api/api'
 
 enum constants {

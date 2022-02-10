@@ -1,7 +1,7 @@
 import { Dispatch } from "redux";
 
 import * as axios from "../../api/api";
-import { IForm } from "../../types";
+import { IForm } from "../../Models/types";
 
 enum constants { SETERRORRS = "SETERRORRS", TOGGALE = "TOGGALE", CLEARSTATE = "CLEARSTATE" }
 

@@ -1,4 +1,4 @@
-import { IForm, INewVacance, IResume, IVacance } from './../types'
+import { IForm, INewVacance, IResume, IVacance } from '../Models/types'
 
 import axios from "axios";
 

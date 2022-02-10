@@ -1,7 +1,7 @@
 import { Button, Card } from 'antd'
 import { useNavigate } from 'react-router-dom'
 
-import { IResume } from '../../types'
+import { IResume } from '../../Models/types'
 
 function Resume(Resume: IResume) {
     const nav = useNavigate()
