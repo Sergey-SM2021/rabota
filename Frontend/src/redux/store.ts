@@ -1,10 +1,10 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
-import employee from './employee'
-import employer from './employer'
+import employee from './reducers/employee'
+import employer from './reducers/employer'
 import thunk from 'redux-thunk'
-import form from './newResume'
-import myResume from './myResume'
-import vacance from './newVacance'
+import form from './reducers/newResume'
+import myResume from './reducers/myResume'
+import vacance from './reducers/newVacance'
 
 const reducers = combineReducers({
     employee,
@@ -17,4 +17,5 @@ const reducers = combineReducers({
 let store = createStore(reducers,applyMiddleware(thunk))
 
 export type RootType = ReturnType<typeof reducers>
+
 export default store

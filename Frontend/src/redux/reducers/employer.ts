@@ -1,7 +1,7 @@
 import { Dispatch } from "redux"
 
-import * as axios from "../api/api"
-import { IResume } from "../types"
+import * as axios from "../../api/api"
+import { IResume } from "../../types"
 
 enum CONSTANTS {
     SETRESUMES = "SETRESUMES",

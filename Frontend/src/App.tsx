@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom'
 import { FC } from 'react'
 import { Layout } from 'antd';
 
@@ -8,7 +8,7 @@ import Createresume from './components/Createresume/NewResume'
 import Auth from './components/Auth/Auth'
 import ResumeAnyPerson from './components/ResumeAnyPerson'
 import VacanceForm from './components/VacanceForm/NewVacance'
-import Header from './Header';
+import Header from './Header'
 
 const { Content } = Layout;
 

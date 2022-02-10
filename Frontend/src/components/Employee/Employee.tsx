@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-import { getVacance } from '../../redux/employee'
+import { getVacance } from '../../redux/reducers/employee'
 import * as selector from '../../redux/selectors'
 import Vacance from './Vacance'
 

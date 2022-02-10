@@ -1,12 +1,12 @@
 import { Field, Formik, Form, FieldArray } from 'formik'
 import { useDispatch, useSelector } from "react-redux"
 
-import { SendResume } from "../../redux/newResume";
+import { SendResume } from "../../redux/reducers/newResume";
 import * as selecor from '../../redux/selectors'
 import {Button, Spin} from 'antd'
 import {useEffect} from "react"
 import {useLocation, useNavigate} from "react-router-dom"
-import {ClearState} from "../../redux/newResume"
+import {ClearState} from "../../redux/reducers/newResume"
 import scss from './style.module.scss'
 
 const Resume = () => {

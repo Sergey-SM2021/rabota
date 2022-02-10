@@ -3,7 +3,7 @@ import { Field, FieldArray, Form, Formik } from 'formik'
 import { Button } from 'antd'
 import { useDispatch } from 'react-redux'
 
-import { vacanceSubmit } from '../../redux/newVacance'
+import { vacanceSubmit } from '../../redux/reducers/newVacance'
 
 const VacanceForm: FC = () => {
     const dispatch = useDispatch()

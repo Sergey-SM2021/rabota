@@ -1,6 +1,6 @@
 import { Dispatch } from "redux"
-import { Vacance } from "../api/api"
-import { IVacance } from "../types"
+import { Vacance } from "../../api/api"
+import { IVacance } from "../../types"
 
 enum CONSTANTS {
     SETVACANCE = "SETVACANCE",

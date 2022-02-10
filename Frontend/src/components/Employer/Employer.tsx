@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Resume from './Resume'
 import * as selector from '../../redux/selectors'
 
-import { getResumes } from '../../redux/employer'
+import { getResumes } from '../../redux/reducers/employer'
 import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Button, Input, Pagination, Spin } from 'antd'
