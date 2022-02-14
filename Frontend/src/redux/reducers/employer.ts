@@ -93,7 +93,7 @@ const employer = (state = defState, action: actionTypes) => {
     return state
 }
 
-export const getResumes = (page = 3, count = 1) => {
+export const getResumes = (page = 6, count = 1) => {
     return async (dispatch: Dispatch<actionTypes>) => {
         dispatch(switchPreloader())
         try {
