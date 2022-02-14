@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useParams } from 'react-router-dom'
 
 import { getResume } from '../redux/reducers/myResume'
+import Style from './ResumeAnyPerson.module.sass'
 import * as selector from '../redux/selectors'
 
 const ResumeAnyPerson = () => {
@@ -17,7 +18,7 @@ const ResumeAnyPerson = () => {
   let { name, surename, ...state } = useSelector(selector.Resume.getResume)
   return (<>
     {
-      isLoading ? <Spin size='large' /> : <Card>
+      isLoading ? <Spin size='large' /> : <Card className={Style.card}>
         <h6>id : {state._id}</h6>
         <h2>{name}</h2>
         <h2>{surename}</h2>

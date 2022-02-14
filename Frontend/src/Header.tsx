@@ -5,7 +5,7 @@ import { Layout, Menu } from 'antd';
 const { Header } = Layout;
 
 const MyHeader:FC = () => {
-    return (<Header>
+    return (<Header >
         <div className="logo" />
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
             <Menu.Item><NavLink to={"employer"}>Работодатель</NavLink></Menu.Item>
