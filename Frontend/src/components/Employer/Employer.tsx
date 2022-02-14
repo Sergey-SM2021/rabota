@@ -41,7 +41,7 @@ const Employer = () => {
                     resumes.map((el) => (<Resume {...el} />))}
             <Pagination defaultCurrent={1} defaultPageSize={3} total={totalCount} onChange={MyPagination} />
         </div>
-        <div>
+        <div className={Style.resumeAnyPerson}>
             <ResumeAnyPerson />
         </div>
     </div>)

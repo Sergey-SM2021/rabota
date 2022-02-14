@@ -9,6 +9,7 @@ function Resume(Resume: IResume) {
     return (<>
         <Card style={{ marginBottom: 10, marginTop: 10 }}>
             <h2 className={Style.title}>{Resume.data}</h2>
+            <p>100$ - 786$</p>
             <p>Опыт работы:{Resume.experience}</p>
             <Button type={"primary"} onClick={() => { nav(Resume._id) }}>Показать анкету</Button>
         </Card>

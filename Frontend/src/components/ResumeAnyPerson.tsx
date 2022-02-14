@@ -5,6 +5,7 @@ import { useLocation, useParams } from 'react-router-dom'
 
 import { getResume } from '../redux/reducers/myResume'
 import * as selector from '../redux/selectors'
+import Style from './ResumeAnyPerson.module.sass'
 
 const ResumeAnyPerson = () => {
   let isLoading = useSelector(selector.Resume.isLoading)
@@ -17,7 +18,7 @@ const ResumeAnyPerson = () => {
   let { name, surename, ...state } = useSelector(selector.Resume.getResume)
   return (<>
     {
-      isLoading ? <Spin size='large' /> : <Card>
+      isLoading ? <Spin size='large' /> : <Card className={Style.card}>
         <h6>id : {state._id}</h6>
         <h2>{name}</h2>
         <h2>{surename}</h2>
