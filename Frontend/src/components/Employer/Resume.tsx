@@ -2,13 +2,14 @@ import { Button, Card } from 'antd'
 import { useNavigate } from 'react-router-dom'
 
 import { IResume } from '../../Models/types'
+import Style from './Resume.module.sass'
 
 function Resume(Resume: IResume) {
     const nav = useNavigate()
     return (<>
-        <Card style={{ marginBottom: 10, marginTop: 10 }} title={Resume.data}>
-            <h3>Опыт работы:{Resume.experience}</h3>
-            <h3>{Resume.skills}</h3>
+        <Card style={{ marginBottom: 10, marginTop: 10 }}>
+            <h2 className={Style.title}>{Resume.data}</h2>
+            <p>Опыт работы:{Resume.experience}</p>
             <Button type={"primary"} onClick={() => { nav(Resume._id) }}>Показать анкету</Button>
         </Card>
     </>)
