@@ -15,7 +15,7 @@ const { Content } = Layout;
 const App: FC = () => {
   return (<Layout className="layout">
     <Header />
-    <Content style={{ padding: '0 50px' }}>
+    <Content style={{ padding: '0 50px'}}>
       <div className="site-layout-content">
         <Routes>
           <Route path="newvacance" element={<VacanceForm />} />
