@@ -39,7 +39,7 @@ const Employer = () => {
             {isLoading ?
                 <div><Spin size='large' /></div> : Errors ? <h2>{Errors}</h2> :
                     resumes.map((el) => (<Resume {...el} />))}
-            <Pagination defaultCurrent={1} defaultPageSize={3} total={totalCount} onChange={MyPagination} />
+            <Pagination defaultCurrent={1} defaultPageSize={6} total={totalCount} onChange={MyPagination} />
         </div>
         <div className={Style.resumeAnyPerson}>
             <ResumeAnyPerson />
