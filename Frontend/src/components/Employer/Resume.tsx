@@ -1,11 +1,11 @@
 import { Button, Card } from 'antd'
 import { useDispatch } from 'react-redux'
 
-import { IResume } from '../../Models/types'
+import { TIResume } from '../../Models/Models'
 import { getResume } from '../../redux/reducers/myResume'
 import Style from './Resume.module.sass'
 
-function Resume(Resume: IResume) {
+function Resume(Resume: TIResume) {
     const dispatch = useDispatch()
     const HandlerResumeSelected = () => {
         dispatch(getResume(Resume._id))

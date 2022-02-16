@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { IResume } from '../../Models/types';
+import { TIResume } from '../../Models/Models';
 import * as axios from '../../api/api'
 
 enum constants {
@@ -7,7 +7,7 @@ enum constants {
     SWITCHLOAD = "SWITCHLOAD",
 }
 
-let initialState: { Resume: IResume, isLoading: Boolean } = {
+let initialState: { Resume: TIResume, isLoading: Boolean } = {
     Resume: {
         _id: "ghbd9hher78w78wee8932",
         data: "С# developer",
@@ -29,11 +29,11 @@ const switchLoad = (): ISwitchLoader => ({
 })
 
 interface IsetResume {
-    resume: IResume,
+    resume: TIResume,
     type: constants.SETRESUME
 }
 
-const setResume = (resume: IResume): IsetResume => ({
+const setResume = (resume: TIResume): IsetResume => ({
     resume: resume,
     type: constants.SETRESUME
 })

@@ -1,11 +1,11 @@
 import { FC, useState } from 'react'
 import { Button, Card } from 'antd'
 import { useNavigate } from 'react-router-dom'
-import { IVacance } from '../../Models/types'
+import { TIVacance } from '../../Models/Models'
 import Style from './Style.module.sass'
 import { Modal } from 'antd'
 
-const Vacance: FC<IVacance> = ({ vacance, description, price, skills }) => {
+const Vacance: FC<TIVacance> = ({ vacance, description, price, skills }) => {
     const [isVisible,setVisibility] = useState(false)
     const nav = useNavigate()
     const HandlerCallClick = () => {

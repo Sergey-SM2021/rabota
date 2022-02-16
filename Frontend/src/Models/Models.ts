@@ -1,4 +1,4 @@
-export interface IResume {
+export interface TIResume {
         _id: string,
         name: string,
         surename: string,
@@ -8,7 +8,7 @@ export interface IResume {
         experience: string
 }
 
-export interface IForm {
+export interface IResume {
         name: string,
         surename: string,
         number: string,
@@ -17,13 +17,12 @@ export interface IForm {
         experience: string
 }
 
-export type INewVacance = Omit<IVacance, "_id">
+export type IVacance = Omit<TIVacance, "_id">
 
-export interface IVacance {
+export interface TIVacance {
         _id: string,
         skills: Array<string>,
         vacance: string,
         price: number,
         description: string,
-        
 }

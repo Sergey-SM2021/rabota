@@ -1,7 +1,7 @@
 import { Dispatch } from "redux";
 
 import * as axios from "../../api/api";
-import { IForm } from "../../Models/types";
+import { IResume } from "../../Models/Models";
 
 enum constants { SETERRORRS = "SETERRORRS", TOGGALE = "TOGGALE", CLEARSTATE = "CLEARSTATE" }
 
@@ -58,7 +58,7 @@ const form = (state = defaultState, action: actionType) => {
     }
 }
 
-export const SendResume = (data: IForm) => {
+export const SendResume = (data: IResume) => {
     return async (dispatch: Dispatch<actionType>) => {
         dispatch(toggleLoading())
         try {

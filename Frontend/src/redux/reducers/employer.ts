@@ -1,7 +1,7 @@
 import { Dispatch } from "redux"
 
 import * as axios from "../../api/api"
-import { IResume } from "../../Models/types"
+import { TIResume } from "../../Models/Models"
 
 enum CONSTANTS {
     SETRESUMES = "SETRESUMES",
@@ -12,7 +12,7 @@ enum CONSTANTS {
 
 interface IIntialState {
     totalCountCount: number,
-    resumes: Array<IResume>,
+    resumes: Array<TIResume>,
     loading: boolean,
     errors: string,
 }
@@ -54,10 +54,10 @@ const settotalCountCount = (totalCountCount: number): ISettotalCountCount => ({
 
 interface setResumesType {
     type: CONSTANTS.SETRESUMES,
-    data: Array<IResume>
+    data: Array<TIResume>
 }
 
-const setResumesAC = (data: Array<IResume>): setResumesType => ({
+const setResumesAC = (data: Array<TIResume>): setResumesType => ({
     type: CONSTANTS.SETRESUMES,
     data
 })

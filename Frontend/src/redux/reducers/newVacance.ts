@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux'
 
 import { Vacance } from '../../api/api'
-import { INewVacance  } from '../../Models/types'
+import { IVacance  } from '../../Models/Models'
 
 enum CONSTANTS {
     SENDVACANCE = "SENDVACANCE"
@@ -18,7 +18,7 @@ const vacanceReducer = (state = initialState, action: actionType) => {
     return stateCopy
 }
 
-export const vacanceSubmit = (vacance: INewVacance) => (
+export const vacanceSubmit = (vacance: IVacance) => (
     async (dispatch: Dispatch<actionType>) => {
         try {
             await Vacance.createVacance(vacance)

@@ -1,4 +1,4 @@
-import { IForm, INewVacance, IResume, IVacance } from '../Models/types'
+import { IResume, IVacance, TIResume, TIVacance } from '../Models/Models'
 
 import axios from "axios";
 
@@ -7,7 +7,7 @@ const instace = axios.create({
 })
 
 export const Resume = {
-    async createResume(resume: IForm) {
+    async createResume(resume: IResume) {
         try {
             await instace.post("resume/create", resume)
         } catch (error) {
@@ -16,7 +16,7 @@ export const Resume = {
     },
     async getResumes(page: number, count: number) {
         try {
-            return((await instace.get<{ resumes: Array<IResume>, totalCount: number }>(`resume/find?page=${page}&count=${count}`)).data)
+            return((await instace.get<{ resumes: Array<TIResume>, totalCount: number }>(`resume/find?page=${page}&count=${count}`)).data)
         }
         catch (e) {
             throw  "Не удалось загрузить резюме"
@@ -24,7 +24,7 @@ export const Resume = {
     },
     async getResume(id: string) {
         try {
-            return ((await instace.get<IResume>(`resume/findById/${id}`)).data)
+            return ((await instace.get<TIResume>(`resume/findById/${id}`)).data)
         }
         catch (e) {
             throw "Не удалось загрузить резюме"
@@ -33,7 +33,7 @@ export const Resume = {
 }
 
 export const Vacance = {
-    async createVacance(vacance: INewVacance) {
+    async createVacance(vacance: IVacance) {
         try {
             await instace.post("/vacance/create", vacance)
         }catch (e) {
@@ -42,7 +42,7 @@ export const Vacance = {
     },
     async getVacance(page: number, pageSize: number) {
         try {
-            return (await (await instace.get<{vacanses:Array<IVacance>,totalCount:number}>(`/vacance?page=${page}&pageSize=${pageSize}`)).data)
+            return (await (await instace.get<{vacanses:Array<TIVacance>,totalCount:number}>(`/vacance?page=${page}&pageSize=${pageSize}`)).data)
         }
         catch (e) {
             throw "Не удалось получиить вакансии"

@@ -1,6 +1,6 @@
 import { Dispatch } from "redux"
 import { Vacance } from "../../api/api"
-import { IVacance } from "../../Models/types"
+import { TIVacance } from "../../Models/Models"
 
 enum CONSTANTS {
     SETVACANCE = "SETVACANCE",
@@ -11,7 +11,7 @@ enum CONSTANTS {
 
 interface IinitialState {
     isLoading: boolean,
-    vacance: Array<IVacance>,
+    vacance: Array<TIVacance>,
     maxCount: number,
     errors: string
 }
@@ -58,11 +58,11 @@ const setTotleCount = (totalCount: number): IsetTotalCount => ({
 })
 
 interface IsetVacance {
-    arrOfVacance: Array<IVacance>,
+    arrOfVacance: Array<TIVacance>,
     type: CONSTANTS.SETVACANCE,
 }
 
-const setVacance = (arrOfVacance: Array<IVacance>): IsetVacance => {
+const setVacance = (arrOfVacance: Array<TIVacance>): IsetVacance => {
     return ({
         type: CONSTANTS.SETVACANCE,
         arrOfVacance
