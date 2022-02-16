@@ -7,7 +7,7 @@ import SideBar from "./SideBar/SideBar"
 
 const Vacance: FC = () => {
     return (<div className={Style.wrapper}>
-        <Header />
+        <Header title="Full" price={300} skills={["js","ts"]}/>
         <Content />
         <div className={`${Style.newBar} ${Style.item}`}>newBar</div>
         <div className={`${Style.chat} ${Style.item}`}>chat</div>
