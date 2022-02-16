@@ -1,0 +1,44 @@
+.wrapper
+    display: grid
+    grid-template: 25fr 10fr 35fr 10fr / 75% 25%
+    grid-template-areas: "header sideBar" "main sideBar" "main newBar" "chat newBar"
+
+.item
+    background-color: #fff 
+    padding: 12px
+    box-sizing: border-box
+
+.sideBar
+    display: flex
+    align-items: center
+    flex-direction: column
+    margin: 10px
+    grid-area: sideBar
+    min-height: 20vh
+
+.header
+    grid-area: header
+    margin: 10px
+    min-height: 10vh
+
+.main
+    grid-area: main
+    margin: 10px
+    min-height: 50vh
+
+.newBar
+    grid-area: newBar
+    margin: 10px
+    min-height: 10vh
+
+.chat
+    grid-area: chat
+    margin: 10px
+    min-height: 10vh
+
+.ava
+    width: 100px
+    height: 100px
+    background: black
+    border-radius: 8px
+

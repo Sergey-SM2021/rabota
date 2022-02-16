@@ -9,6 +9,7 @@ import Auth from './components/Auth/Auth'
 import ResumeAnyPerson from './components/ResumeAnyPerson'
 import VacanceForm from './components/CreateVacance/NewVacance'
 import Header from './Header'
+import Vacance from './components/Vacance/Vacance';
 
 const { Content } = Layout;
 
@@ -18,6 +19,7 @@ const App: FC = () => {
     <Content style={{ padding: '0 50px' }}>
       <div className="site-layout-content">
         <Routes>
+          <Route path="vacance" element={<Vacance />} />
           <Route path="newvacance" element={<VacanceForm />} />
           <Route path="/employer" element={<Employer />} />
           <Route path="/employer/:id" element={<ResumeAnyPerson />} />

@@ -25,4 +25,5 @@ export interface IVacance {
         vacance: string,
         price: number,
         description: string,
+        
 }
