@@ -18,19 +18,19 @@ export const Resumes = {
 
 export const Resume = {
     getResume(state: RootType) {
-        return state.myResume.Resume
+        return state.someonesResume.Resume
     },
     isLoading(state: RootType) {
-        return state.myResume.isLoading
+        return state.someonesResume.isLoading
     },
 }
 
 export const Form = {
     formIsToggle(state: RootType) {
-        return state.form.loading
+        return state.CreateResume.loading
     },
     errors(state: RootType){
-        return state.form.errors
+        return state.CreateResume.errors
     }
 }
 
