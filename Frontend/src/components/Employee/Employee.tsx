@@ -20,10 +20,10 @@ const Employee = () => {
     useEffect(() => {
         dispatch(getVacance())
     }, [loc])
-    const Vacances = useSelector(selector.Vacance.getVacance)
-    const isLoading = useSelector(selector.Vacance.isLoading)
-    const TotalCount = useSelector(selector.Vacance.getTotalCount)
-    const Errors = useSelector(selector.Vacance.errors)
+    const Vacances = useSelector(selector.Vacances.getVacance)
+    const isLoading = useSelector(selector.Vacances.isLoading)
+    const TotalCount = useSelector(selector.Vacances.getTotalCount)
+    const Errors = useSelector(selector.Vacances.errors)
 
     return (<>
         <Search style={{ marginTop: 10, marginBottom: 10 }} />

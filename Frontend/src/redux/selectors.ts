@@ -25,7 +25,7 @@ export const Resume = {
     },
 }
 
-export const Form = {
+export const NewResume = {
     formIsToggle(state: RootType) {
         return state.CreateResume.loading
     },
@@ -34,7 +34,7 @@ export const Form = {
     }
 }
 
-export const Vacance = {
+export const Vacances = {
     errors(state: RootType){
         return (state.employee.errors)
     },

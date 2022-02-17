@@ -13,8 +13,8 @@ const Resume = () => {
     const nav = useNavigate()
     const loc = useLocation().pathname
     useEffect(()=>(()=>{dispatch(ClearState())}),[loc])
-    const err = useSelector(selecor.Form.errors)
-    const formIsToggle = useSelector(selecor.Form.formIsToggle)
+    const err = useSelector(selecor.NewResume.errors)
+    const formIsToggle = useSelector(selecor.NewResume.formIsToggle)
     const dispatch = useDispatch()
 
     interface ErrorType {
