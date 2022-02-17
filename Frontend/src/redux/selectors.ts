@@ -48,3 +48,9 @@ export const Vacances = {
         return state.employee.maxCount
     },
 }
+
+export const Vacance = {
+    getVacance(state: RootType){
+        return state.vacance.vacance
+    }
+}

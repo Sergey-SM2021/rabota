@@ -5,13 +5,15 @@ import thunk from 'redux-thunk'
 import CreateResume from './reducers/newResume'
 import someonesResume from './reducers/myResume'
 import CreateVacance from './reducers/newVacance'
+import { vacance } from "./reducers/vacance"
 
 const reducers = combineReducers({
     employee,
     employer,
     CreateResume,
     someonesResume,
-    CreateVacance
+    CreateVacance,
+    vacance
 })
 
 let store = createStore(reducers, applyMiddleware(thunk))
