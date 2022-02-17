@@ -1,11 +1,26 @@
+export enum skillLavel {
+        JUNIOR = "JUNIOR",
+        MIDDLE = "MIDDLE",
+        SENIOR = "SENIOR",
+        TEAMLEAD = "TEAMLEAD"
+}
+
+type skillLavelType = skillLavel
+
 export interface TIResume {
         _id: string,
         name: string,
         surename: string,
         number: string,
         skills: Array<string>,
-        data: string,
-        experience: string
+        experience: string,
+
+        profession: string,
+        description: string,
+        skillLavel: skillLavelType,
+        gmail: string,
+        sity: string,
+        country: string
 }
 
 export interface IResume {
@@ -13,8 +28,14 @@ export interface IResume {
         surename: string,
         number: string,
         skills: Array<string>,
-        data: string,
-        experience: string
+        experience: string,
+
+        profession: string,
+        description: string,
+        skillLavel: skillLavelType,
+        gmail: string,
+        sity: string,
+        country: string
 }
 
 export type IVacance = Omit<TIVacance, "_id">

@@ -1,7 +1,7 @@
 import { Dispatch } from "redux"
 
 import * as axios from "../../api/api"
-import { TIResume } from "../../Models/Models"
+import { skillLavel, TIResume } from "../../Models/Models"
 
 enum CONSTANTS {
     SETRESUMES = "SETRESUMES",
@@ -24,9 +24,14 @@ let defState: IIntialState = {
             _id: "678fff",
             surename: "Кузнецов",
             number: "89168518338",
-            data: "Начинающий frontend developer",
+            profession: "Начинающий frontend developer",
             skills: ["JavaScript", "css&html", "react&redux"],
-            experience: "есть"
+            experience: "есть",
+            country:"Дакка",
+            description:"Крутой индус",
+            gmail:"Indian@gmail.com",
+            sity:"Бангладеш",
+            skillLavel:skillLavel.MIDDLE
         }
     ],
     totalCountCount: 7,

@@ -19,7 +19,7 @@ const ResumeAnyPerson = () => {
       dispatch(getResume("61ea5a7b581bb61f0c33e9d1"))
     }
   }, [loc])
-  let { name, surename, ...state } = useSelector(selector.Resume.getResume)
+  let { name, surename, profession, ...state } = useSelector(selector.Resume.getResume)
   return (<>
     {
       isLoading ? <Spin size='large' /> : <Card className={Style.card}>
@@ -28,31 +28,15 @@ const ResumeAnyPerson = () => {
           <div className={Style.ava} />
           <div className={Style.contactInfo}>
             <p className={Style.title}>{name} {surename}</p>
-            <h2>{state.data}</h2>
+            <h2>{profession}</h2>
             <p>Опыт работы:<Checkbox defaultChecked disabled className={Style.checkbox} /></p>
           </div>
         </div>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Fugiat facilis, nobis laborum veniam omnis voluptatem amet aliquid error perferendis rem aliquam aspernatur iure.
-          Pariatur, adipisci asperiores labore beatae suscipit quasi!
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Fugiat facilis, nobis laborum veniam omnis voluptatem amet aliquid error perferendis rem aliquam aspernatur iure.
-          Pariatur, adipisci asperiores labore beatae suscipit quasi!
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Fugiat facilis, nobis laborum veniam omnis voluptatem amet aliquid error perferendis rem aliquam aspernatur iure.
-          Pariatur, adipisci asperiores labore beatae suscipit quasi!Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Fugiat facilis, nobis laborum veniam omnis voluptatem amet aliquid error perferendis rem aliquam aspernatur iure.
-          Pariatur, adipisci asperiores labore beatae suscipit quasi!
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Fugiat facilis, nobis laborum veniam omnis voluptatem amet aliquid error perferendis rem aliquam aspernatur iure.
-          Pariatur, adipisci asperiores labore beatae suscipit quasi!
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Fugiat facilis, nobis laborum veniam omnis voluptatem amet aliquid error perferendis rem aliquam aspernatur iure.
-          Pariatur, adipisci asperiores labore beatae suscipit quasi!</p>
+        <p>{state.description}</p>
         <h2>Телефон: {state.number}</h2>
-        <h2>Gmail: @uimaster.gmail.com</h2>
-        <h2>Город: Москва</h2>
-        <h2>Страна: Россия</h2>
+        <h2>Gmail: {state.gmail}</h2>
+        <h2>Город: {state.sity}</h2>
+        <h2>Страна: {state.country}</h2>
         {
           state.skills.map((el) => (
             <span className={Style.skill}>{el}</span>

@@ -3,16 +3,16 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { SendResume } from "../../redux/reducers/newResume";
 import * as selecor from '../../redux/selectors'
-import {Button, Spin} from 'antd'
-import {useEffect} from "react"
-import {useLocation, useNavigate} from "react-router-dom"
-import {ClearState} from "../../redux/reducers/newResume"
-import scss from './style.module.scss'
+import { Button, Spin } from 'antd'
+import { useEffect } from "react"
+import { useLocation, useNavigate } from "react-router-dom"
+import { ClearState } from "../../redux/reducers/newResume"
+import Style from './style.module.scss'
 
 const Resume = () => {
     const nav = useNavigate()
     const loc = useLocation().pathname
-    useEffect(()=>(()=>{dispatch(ClearState())}),[loc])
+    useEffect(() => (() => { dispatch(ClearState()) }), [loc])
     const err = useSelector(selecor.NewResume.errors)
     const formIsToggle = useSelector(selecor.NewResume.formIsToggle)
     const dispatch = useDispatch()
@@ -51,13 +51,10 @@ const Resume = () => {
                     Error.experience = "Укажите опыт работы"
                 }
 
-                if (!value.data) {
-                    Error.data = "Это обязательное поле"
-                }
-
                 return Error
             }}
-            onSubmit={(values,actions) => {
+            onSubmit={(values, actions) => {
+                // @ts-ignore
                 dispatch(SendResume(values))
                 actions.resetForm()
                 nav("employee")
@@ -66,64 +63,76 @@ const Resume = () => {
                 name: "",
                 surename: "",
                 number: "",
-                data: "",
                 skills: [""],
                 experience: "",
+
+                profession: "",
+                description: "",
+                skillLavel: "",
+                gmail: "",
+                sity: "",
+                country: ""
             }}
             render={({ values, errors, touched }) => (<>
-                {formIsToggle ? <div><Spin size={"large"}/></div> : err ? <h2>{err}</h2> :
+                {formIsToggle ? <div><Spin size={"large"} /></div> : err ? <h2>{err}</h2> :
                     <Form>
-                    <div className={scss.block}>
-                        {touched.name && errors.name ? <div className={scss.error}>*{errors.name}</div> : <div>Имя</div>}
-                        <Field name={"name"} />
-                    </div>
-                    <div className={scss.block}>
-                        {touched.surename && errors.surename ? <div className={scss.error}>*{errors.surename}</div> :
-                            <div>Фамилия</div>}
-                        <Field name={"surename"} />
-                    </div>
-                    <div className={scss.block}>
-                        <div>Номер телефона</div>
-                        <Field name={"number"} />
-                    </div>
-                    <div className={scss.block}>
-                        {touched.data && errors.data ? <div className={scss.error}>*{errors.data}</div> :
-                            <div>Укажите специальность</div>}
-                        <Field name={"data"} as="textArea" />
-                    </div>
-                    <div className={scss.block}>
-                        {touched.experience && errors.experience ? <div className={scss.error}>*{errors.experience}</div> :
-                            <div>Укажите опыт работы</div>}
-                        <div><label>есть<Field value={"есть"} name={"experience"} type={"radio"} /></label></div>
-                        <label>нет<Field value={"нет"} name={"experience"} type={"radio"} /></label>
-                    </div>
-                    <div className={scss.block}>
-                        <FieldArray name={'skills'} render={(helpers) => (<div>
-                            <div>Навыки
-                                <Button type={"link"} onClick={() => {
-                                    helpers.push("")
-                                }}>Добавить
-                                </Button>
-                            </div>
-                            {
-                                values.skills.map((el, index) => (<div className={scss.block}>
-                                    <Field name={`skills[${index}]`} />
-                                    <button type={"button"} onClick={() => {
-                                        helpers.remove(index)
-                                    }}>Удалить
-                                    </button>
-                                </div>
-                                ))
-                            }
-                        </div>)} />
-                    </div>
-                    <div className={scss.block}>
-                        <button type="submit" disabled={formIsToggle}>Заполнить</button>
-                    </div>
-                </Form>}
+                        <div className={Style.Stylewrapper}>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </Form>}
             </>)}
         />
     </>)
 }
 
 export default Resume
+
+
+                        // <div className={scss.block}>
+                        //     {touched.name && errors.name ? <div className={scss.error}>*{errors.name}</div> : <div>Имя</div>}
+                        //     <Field name={"name"} />
+                        // </div>
+                        // <div className={scss.block}>
+                        //     {touched.surename && errors.surename ? <div className={scss.error}>*{errors.surename}</div> :
+                        //         <div>Фамилия</div>}
+                        //     <Field name={"surename"} />
+                        // </div>
+                        // <div className={scss.block}>
+                        //     <div>Номер телефона</div>
+                        //     <Field name={"number"} />
+                        // </div>
+                        // <div className={scss.block}>
+                        //     {touched.profession && errors.profession ? <div className={scss.error}>*{errors.profession}</div> :
+                        //         <div>Укажите специальность</div>}
+                        //     <Field name={"profession"} as="textArea" />
+                        // </div>
+                        // <div className={scss.block}>
+                        //     {touched.experience && errors.experience ? <div className={scss.error}>*{errors.experience}</div> :
+                        //         <div>Укажите опыт работы</div>}
+                        //     <div><label>есть<Field value={"есть"} name={"experience"} type={"radio"} /></label></div>
+                        //     <label>нет<Field value={"нет"} name={"experience"} type={"radio"} /></label>
+                        // </div>
+                        // <div className={scss.block}>
+                        //     <FieldArray name={'skills'} render={(helpers) => (<div>
+                        //         <div>Навыки
+                        //             <Button type={"link"} onClick={() => {
+                        //                 helpers.push("")
+                        //             }}>Добавить
+                        //             </Button>
+                        //         </div>
+                        //         {
+                        //             values.skills.map((el, index) => (<div className={scss.block}>
+                        //                 <Field name={`skills[${index}]`} />
+                        //                 <button type={"button"} onClick={() => {
+                        //                     helpers.remove(index)
+                        //                 }}>Удалить
+                        //                 </button>
+                        //             </div>
+                        //             ))
+                        //         }
+                        //     </div>)} />
+                        // </div>
+                        // <div className={scss.block}>
+                        //     <button type="submit" disabled={formIsToggle}>Заполнить</button>
+                        // </div>
