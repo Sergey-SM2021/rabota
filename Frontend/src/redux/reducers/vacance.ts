@@ -1,5 +1,6 @@
 import { Dispatch } from "redux"
 import { IVacance } from "../../Models/Models"
+import * as api from '../../api/api'
 
 enum constants {
     SETVACANC = "SETVACANC"
@@ -13,8 +14,8 @@ const StateInit: stateType = {
     vacance: {
         price: 800,
         skills: ["ts"],
-        description: "description",
-        vacance: ""
+        isDistantWork: true,
+        title: "New vacance"
     }
 }
 
@@ -41,6 +42,7 @@ export const vacance = (state = StateInit, action: actionType) => {
     }
 }
 
-export const setVacance = (vacance: IVacance) => (dispatch: Dispatch) => {
+export const setVacance = (id: string) => async (dispatch: Dispatch) => {
+    const vacance = await api.Vacance.getVacance(id)
     dispatch(SetVacance(vacance))
 }

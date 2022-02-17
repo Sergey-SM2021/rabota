@@ -38,7 +38,7 @@ export const Vacances = {
     errors(state: RootType){
         return (state.employee.errors)
     },
-    getVacance(state: RootType) {
+    getVacances(state: RootType) {
         return (state.employee.vacance)
     },
     isLoading(state: RootType) {

@@ -19,7 +19,7 @@ const App: FC = () => {
     <Content style={{ padding: '0 50px' }}>
       <div className="site-layout-content">
         <Routes>
-          <Route path="vacance" element={<Vacance />} />
+          <Route path="vacance/:id" element={<Vacance />} />
           <Route path="newvacance" element={<VacanceForm />} />
           <Route path="/employer" element={<Employer />} />
           <Route path="/employer/:id" element={<ResumeAnyPerson />} />

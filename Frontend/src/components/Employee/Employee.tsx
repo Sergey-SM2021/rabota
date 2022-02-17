@@ -20,7 +20,7 @@ const Employee = () => {
     useEffect(() => {
         dispatch(getVacance())
     }, [loc])
-    const Vacances = useSelector(selector.Vacances.getVacance)
+    const Vacances = useSelector(selector.Vacances.getVacances)
     const isLoading = useSelector(selector.Vacances.isLoading)
     const TotalCount = useSelector(selector.Vacances.getTotalCount)
     const Errors = useSelector(selector.Vacances.errors)

@@ -3,12 +3,9 @@ import Vacance from "../vacance.js"
 class VacanceController {
     async create(req, res) {
         try {
-            const { skills, vacance, price, description } = req.body
+            const { title, price, skills, isDistantWork } = req.body
             const vac = await Vacance.create({
-                skills,
-                vacance,
-                price,
-                description
+                title, price, skills, isDistantWork
             })
             res.send(vac)
         } catch (error) {
@@ -23,6 +20,16 @@ class VacanceController {
             const totalCount = await Vacance.find().count()
             console.log(`vacance is ${vacance}`)
             res.send({ vacanses: vacance, totalCount })
+        } catch (error) {
+            res.status(500).send(error)
+        }
+    }
+
+    async getById(req, res) {
+        try {
+            const params = req.params
+            const vacance = await Vacance.findById(params.id)
+            res.send(vacance)
         } catch (error) {
             res.status(500).send(error)
         }

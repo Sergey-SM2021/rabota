@@ -19,11 +19,11 @@ interface IinitialState {
 const initialState: IinitialState = {
     isLoading: false,
     vacance: [{
-        description: "Ищем форнтенд разработчика с опытом работы от 3 лет",
         price: 120,
         skills: ["Js", "Ts"],
-        vacance: "Frontend-Developer",
-        _id: "klsdklfkl77hhb43h4jh4hjh5njn"
+        _id: "klsdklfkl77hhb43h4jh4hjh5njn",
+        isDistantWork:true,
+        title:"React - Samuray"
     }],
     maxCount: 20,
     errors: ""
@@ -95,7 +95,7 @@ export const getVacance = (page: number = 1, pageSize: number = 2) => (
     async (dispatch: Dispatch<actionType>) => {
         dispatch(switchLoader())
         try {
-            const vacanceObj = await Vacance.getVacance(page, pageSize)
+            const vacanceObj = await Vacance.getVacances(page, pageSize)
             dispatch(setTotleCount(vacanceObj.totalCount))
             dispatch(setVacance(vacanceObj.vacanses))
         }catch (e:any) {

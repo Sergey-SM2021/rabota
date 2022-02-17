@@ -16,10 +16,10 @@ export const Resume = {
     },
     async getResumes(page: number, count: number) {
         try {
-            return((await instace.get<{ resumes: Array<TIResume>, totalCount: number }>(`resume/find?page=${page}&count=${count}`)).data)
+            return ((await instace.get<{ resumes: Array<TIResume>, totalCount: number }>(`resume/find?page=${page}&count=${count}`)).data)
         }
         catch (e) {
-            throw  "Не удалось загрузить резюме"
+            throw "Не удалось загрузить резюме"
         }
     },
     async getResume(id: string) {
@@ -36,13 +36,21 @@ export const Vacance = {
     async createVacance(vacance: IVacance) {
         try {
             await instace.post("/vacance/create", vacance)
-        }catch (e) {
+        } catch (e) {
             throw "Не получилось создать вакансию"
         }
     },
-    async getVacance(page: number, pageSize: number) {
+    async getVacances(page: number, pageSize: number) {
         try {
-            return (await (await instace.get<{vacanses:Array<TIVacance>,totalCount:number}>(`/vacance?page=${page}&pageSize=${pageSize}`)).data)
+            return (await (await instace.get<{ vacanses: Array<TIVacance>, totalCount: number }>(`/vacance?page=${page}&pageSize=${pageSize}`)).data)
+        }
+        catch (e) {
+            throw "Не удалось получиить вакансии"
+        }
+    },
+    async getVacance(id: string) {
+        try {
+            return (await instace.get(`vacance/${id}`)).data
         }
         catch (e) {
             throw "Не удалось получиить вакансии"

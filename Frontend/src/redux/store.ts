@@ -1,3 +1,4 @@
+import { vacance } from './reducers/vacance';
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import employee from './reducers/employee'
 import employer from './reducers/employer'
@@ -5,7 +6,6 @@ import thunk from 'redux-thunk'
 import CreateResume from './reducers/newResume'
 import someonesResume from './reducers/myResume'
 import CreateVacance from './reducers/newVacance'
-import { vacance } from "./reducers/vacance"
 
 const reducers = combineReducers({
     employee,

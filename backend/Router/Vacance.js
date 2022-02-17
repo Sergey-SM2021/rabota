@@ -7,4 +7,6 @@ router.post("/create", VacanceController.create)
 
 router.get("/", VacanceController.get)
 
+router.get("/:id", VacanceController.getById)
+
 export default router
