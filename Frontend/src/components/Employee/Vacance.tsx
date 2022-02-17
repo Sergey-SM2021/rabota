@@ -5,7 +5,7 @@ import { TIVacance } from '../../Models/Models'
 import Style from './Style.module.sass'
 import { Modal } from 'antd'
 
-const Vacance: FC<TIVacance> = ({ title, price, _id }) => {
+const Vacance: FC<TIVacance> = ({ title, price, _id, phone }) => {
     const [isVisible,setVisibility] = useState(false)
     const nav = useNavigate()
     const HandlerCallClick = () => {
@@ -20,7 +20,7 @@ const Vacance: FC<TIVacance> = ({ title, price, _id }) => {
         <Button onClick={() => { nav(`/vacance/${_id}`) }} type='primary'>Показать</Button>
         <Button onClick={HandlerCallClick} className={Style.call}>Позвонить</Button>
         <Modal onCancel={onOkClick} visible={isVisible} onOk={onOkClick}>
-            Телефон:{`${89897867576}`}
+            Телефон:{phone}
         </Modal>
     </Card>)
 }

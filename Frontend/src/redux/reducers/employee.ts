@@ -24,7 +24,8 @@ const initialState: IinitialState = {
         _id: "klsdklfkl77hhb43h4jh4hjh5njn",
         isDistantWork:true,
         title:"React - Samuray",
-        phone: 12345788
+        phone: 12345788,
+        description:"IT"
     }],
     maxCount: 20,
     errors: ""

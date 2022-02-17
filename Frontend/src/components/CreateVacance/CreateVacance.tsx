@@ -14,7 +14,8 @@ const VacanceForm: FC = () => {
                 price: "",
                 skills: [""],
                 isDistantWork: false,
-                phone: ""
+                phone: "",
+                description: ""
             }}
             onSubmit={(values, actions) => {
                 // @ts-ignore
@@ -39,6 +40,8 @@ const VacanceForm: FC = () => {
                             Удалённая работа
                         </label>
                     </div>
+                    <h4>Опишите вакансию:</h4>
+                    <Field as="textArea" name="description"/>
                     <h4>Введите номер для связи</h4>
                     <Field name="phone"/>
                     <h4>Навыки:</h4>

@@ -5,7 +5,8 @@ const vacance = new mongoose.Schema({
     price: Number,
     skills: [String],
     isDistantWork: Boolean,
-    phone:Number
+    phone:Number,
+    description: String
 })
 
 export default mongoose.model("Vacance", vacance);

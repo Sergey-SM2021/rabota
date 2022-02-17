@@ -12,6 +12,7 @@ type stateType = {
 
 const StateInit: stateType = {
     vacance: {
+        description:"ts",
         price: 800,
         skills: ["ts"],
         isDistantWork: true,

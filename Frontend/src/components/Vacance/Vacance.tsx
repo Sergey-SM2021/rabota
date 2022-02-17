@@ -18,7 +18,7 @@ const Vacance: FC = () => {
     const vacance = useSelector(selectors.Vacance.getVacance)
     return (<div className={Style.wrapper}>
         <Header isDistantWork={true} title={vacance.title} price={vacance.price} skills={vacance.skills} />
-        <Content />
+        <Content content={vacance.description}/>
         <div className={`${Style.newBar} ${Style.item}`}>newBar</div>
         <div className={`${Style.chat} ${Style.item}`}>chat</div>
         <SideBar />

@@ -3,12 +3,10 @@ import Vacance from "../vacance.js"
 class VacanceController {
     async create(req, res) {
         try {
-            const { title, price, skills, isDistantWork, phone } = req.body
+            const { title, price, skills, isDistantWork, phone, description } = req.body
             const vac = await Vacance.create({
-                title, price, skills, isDistantWork, phone
+                title, price, skills, isDistantWork, phone, description
             })
-            console.log("---------------------------------------")
-            console.log(title, price, skills, isDistantWork, phone)
             res.send(vac)
         } catch (error) {
             res.status(500).send(error)
