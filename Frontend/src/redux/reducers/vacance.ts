@@ -15,7 +15,8 @@ const StateInit: stateType = {
         price: 800,
         skills: ["ts"],
         isDistantWork: true,
-        title: "New vacance"
+        title: "New vacance",
+        phone: 1526178323872
     }
 }
 

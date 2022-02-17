@@ -3,10 +3,6 @@ import { Dispatch } from 'redux'
 import { Vacance } from '../../api/api'
 import { IVacance  } from '../../Models/Models'
 
-enum CONSTANTS {
-    SENDVACANCE = "SENDVACANCE"
-}
-
 const initialState = {
     isLoading: false
 }

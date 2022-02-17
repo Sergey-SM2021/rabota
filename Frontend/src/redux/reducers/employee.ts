@@ -23,7 +23,8 @@ const initialState: IinitialState = {
         skills: ["Js", "Ts"],
         _id: "klsdklfkl77hhb43h4jh4hjh5njn",
         isDistantWork:true,
-        title:"React - Samuray"
+        title:"React - Samuray",
+        phone: 12345788
     }],
     maxCount: 20,
     errors: ""

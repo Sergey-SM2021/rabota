@@ -24,5 +24,6 @@ export interface TIVacance {
         title: string,
         price: number,
         skills: Array<string>,
-        isDistantWork: boolean
+        isDistantWork: boolean,
+        phone: number
 }
