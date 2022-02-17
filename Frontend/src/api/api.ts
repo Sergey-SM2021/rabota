@@ -35,14 +35,14 @@ export const Resume = {
 export const Vacance = {
     async createVacance(vacance: IVacance) {
         try {
-            await instace.post("/vacance/create", vacance)
+            await instace.post("vacance/create", vacance)
         } catch (e) {
             throw "Не получилось создать вакансию"
         }
     },
     async getVacances(page: number, pageSize: number) {
         try {
-            return (await (await instace.get<{ vacanses: Array<TIVacance>, totalCount: number }>(`/vacance?page=${page}&pageSize=${pageSize}`)).data)
+            return (await (await instace.get<{ vacanses: Array<TIVacance>, totalCount: number }>(`vacance?page=${page}&pageSize=${pageSize}`)).data)
         }
         catch (e) {
             throw "Не удалось получиить вакансии"

@@ -19,14 +19,6 @@ export interface IResume {
 
 export type IVacance = Omit<TIVacance, "_id">
 
-// export interface TIVacance {
-//         _id: string,
-//         skills: Array<string>,
-//         vacance: string,
-//         price: number,
-//         description: string,
-// }
-
 export interface TIVacance {
         _id: string,
         title: string,

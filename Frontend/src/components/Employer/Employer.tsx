@@ -7,7 +7,7 @@ import Style from './Employer.module.sass'
 import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Button, Input, Pagination, Spin } from 'antd'
-import ResumeAnyPerson from '../someonesResume/someonesResume'
+import ResumeAnyPerson from '../Resume/someonesResume'
 
 const { Search } = Input
 

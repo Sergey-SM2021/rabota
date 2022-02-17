@@ -6,7 +6,7 @@ import Employee from './components/Employee/Employee'
 import Employer from './components/Employer/Employer'
 import Createresume from './components/CreateResume/CreateResume'
 import Auth from './components/Auth/Auth'
-import ResumeAnyPerson from './components/someonesResume/someonesResume'
+import ResumeAnyPerson from './components/Resume/someonesResume'
 import VacanceForm from './components/CreateVacance/CreateVacance'
 import Header from './Header'
 import Vacance from './components/Vacance/Vacance';
