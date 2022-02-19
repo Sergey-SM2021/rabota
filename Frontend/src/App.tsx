@@ -10,6 +10,11 @@ import ResumeAnyPerson from './components/Resume/someonesResume'
 import VacanceForm from './components/CreateVacance/CreateVacance'
 import Header from './Header'
 import Vacance from './components/Vacance/Vacance'
+import CreateResume from './components/CreateResume/CreateResume';
+import { Private } from './components/CreateResume/Private/Private';
+import { Skills } from './components/CreateResume/Skills';
+import { Portfolio } from './components/CreateResume/Portfolio';
+import { LastStep } from './components/CreateResume/LastStep';
 
 const { Content } = Layout;
 
@@ -25,7 +30,12 @@ const App: FC = () => {
             <Route path=":id" element={<ResumeAnyPerson />} />
           </Route>
           <Route path="*" element={<Employee />} />
-          <Route path="/createresume/:step" element={<Createresume />}/>
+          <Route path="/createresume" element={<Createresume />}>
+            <Route path='0' element={<Private />}/>
+            <Route path='1' element={<Skills />}/>
+            <Route path='2' element={<Portfolio />}/>
+            <Route path='3' element={<LastStep />}/>
+          </Route>
           <Route path="/auth" element={<Auth />} />
         </Routes>
       </div>

@@ -1,13 +1,23 @@
 import { Button, Layout } from "antd"
 import { FC } from "react"
-import { Private } from "../Private/Private"
+import { Outlet, useNavigate } from "react-router-dom"
 
 const Content = Layout.Content
 
-export const Form: FC<{next:()=>void, Return:()=>void}> = ({next,Return}) => {
+export const Form: FC = () => {
+    const nav = useNavigate()
+    
+    const back = () => {
+        nav(-1)
+    }
+
+    const next = () => {
+        nav("/createresume/1")
+    }
+
     return (<Content>
-        <Private/>
-        <Button onClick={Return} type="primary">Назад</Button>
+        <Outlet/>
+        <Button onClick={back} type="primary">Назад</Button>
         <Button onClick={next}>Дальше</Button>
     </Content>)
 }
