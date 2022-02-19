@@ -31,6 +31,9 @@ export const NewResume = {
     },
     errors(state: RootType){
         return state.CreateResume.errors
+    },
+    step(state: RootType){
+        return state.CreateResume.step
     }
 }
 

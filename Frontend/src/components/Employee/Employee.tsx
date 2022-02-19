@@ -27,7 +27,7 @@ const Employee = () => {
 
     return (<>
         <Search style={{ marginTop: 10, marginBottom: 10 }} />
-        <Button onClick={() => { nav("/createresume") }} type='primary'>Создать резюме</Button>
+        <Button onClick={() => { nav("/createresume/0") }} type='primary'>Создать резюме</Button>
         {
             <>
                 {isLoading ?
