@@ -1,16 +1,14 @@
 import { constants } from "./Constants"
-import { actionType } from "./INewResume"
-
-interface IDefaultState {
-    loading: boolean,
-    errors: string,
-    step: number,
-}
+import { actionType, IDefaultState } from "./INewResume"
 
 let defaultState: IDefaultState = {
     loading: false,
     errors: "",
-    step: 0,
+    personalDate: {
+        name: "",
+        phone: "",
+        surename: ""
+    }
 }
 
 const form = (state = defaultState, action: actionType) => {
@@ -19,11 +17,8 @@ const form = (state = defaultState, action: actionType) => {
         case constants.TOGGALE:
             stateCopy.loading = !stateCopy.loading
             return stateCopy
-        case constants.RETURN:
-            stateCopy.step --
-            return stateCopy
-        case constants.NEXT:
-            stateCopy.step ++
+        case constants.SETPERSONALDATE:
+            stateCopy.personalDate = action.payload
             return stateCopy
         case constants.CLEARSTATE:
             stateCopy.errors = ""

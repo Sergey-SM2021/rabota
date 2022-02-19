@@ -1,5 +1,5 @@
 import { Space } from 'antd'
-import { Form } from './Form/Form'
+import { Outlet } from 'react-router-dom'
 import Steps from './Steps/Steps'
 
 const Resume = () => {
@@ -8,7 +8,7 @@ const Resume = () => {
             <h2>Создать резюме</h2>
             <Space direction='horizontal' align='start'>
                 <Steps/>
-                <Form />
+                <Outlet/>
             </Space>
         </Space>)
 }

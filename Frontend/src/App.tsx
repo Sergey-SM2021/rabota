@@ -10,7 +10,6 @@ import ResumeAnyPerson from './components/Resume/someonesResume'
 import VacanceForm from './components/CreateVacance/CreateVacance'
 import Header from './Header'
 import Vacance from './components/Vacance/Vacance'
-import CreateResume from './components/CreateResume/CreateResume';
 import { Private } from './components/CreateResume/Private/Private';
 import { Skills } from './components/CreateResume/Skills';
 import { Portfolio } from './components/CreateResume/Portfolio';

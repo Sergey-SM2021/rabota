@@ -26,15 +26,15 @@ export const Resume = {
 }
 
 export const NewResume = {
+    getState(state: RootType){
+        return state.CreateResume.personalDate
+    },
     formIsToggle(state: RootType) {
         return state.CreateResume.loading
     },
     errors(state: RootType){
         return state.CreateResume.errors
     },
-    step(state: RootType){
-        return state.CreateResume.step
-    }
 }
 
 export const Vacances = {

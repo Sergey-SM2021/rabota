@@ -3,5 +3,6 @@ export enum constants {
     SETERRORRS = "SETERRORRS",
     TOGGALE = "TOGGALE",
     CLEARSTATE = "CLEARSTATE",
-    NEXT = "NEXT"
+    NEXT = "NEXT",
+    SETPERSONALDATE = "SETPERSONALDATE" 
 }
