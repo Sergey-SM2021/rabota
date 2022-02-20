@@ -15,7 +15,6 @@ const Resume = () => {
 
 export default Resume
                 // skills: [""],
-                // experience: "",
 
                 // profession: "",
                 // description: "",

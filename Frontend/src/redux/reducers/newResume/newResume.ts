@@ -8,7 +8,7 @@ let defaultState: IDefaultState = {
         name: "",
         phone: "",
         surename: ""
-    }
+    },
 }
 
 const form = (state = defaultState, action: actionType) => {
