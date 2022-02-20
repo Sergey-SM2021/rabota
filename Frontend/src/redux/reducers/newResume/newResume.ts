@@ -28,6 +28,9 @@ const form = (state = defaultState, action: actionType) => {
         case constants.TOGGALE:
             stateCopy.loading = !stateCopy.loading
             return stateCopy
+        case constants.SKILLS:
+            stateCopy.skills = action.payload
+            return stateCopy
         case constants.SETPERSONALDATE:
             stateCopy.personalDate = action.payload
             return stateCopy

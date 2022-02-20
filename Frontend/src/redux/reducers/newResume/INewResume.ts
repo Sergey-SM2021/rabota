@@ -27,4 +27,12 @@ export interface ISetPersonalDate {
     payload: INewResume["personalDate"]
 }
 
-export type actionType = ItoggleLoading | ISetErrors | IClearState | INext | IReturn | ISetPersonalDate
+export interface ISetSkills{
+    type: constants.SKILLS,
+    payload: INewResume["skills"]
+}
+
+export type SkillsType =  INewResume["skills"]
+
+export type actionType = ItoggleLoading | ISetErrors | IClearState | INext | IReturn | ISetPersonalDate | ISetSkills
+
