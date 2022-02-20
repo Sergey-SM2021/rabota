@@ -11,7 +11,7 @@ export const Resumes = {
     checkLoading(state: RootType) {
         return (state.employer.loading)
     },
-    errors(state: RootType){
+    errors(state: RootType) {
         return state.employer.errors
     },
 }
@@ -26,19 +26,26 @@ export const Resume = {
 }
 
 export const NewResume = {
-    getState(state: RootType){
+    // #FIXME: getState mast be caled getPersonalDate
+    getState(state: RootType) {
         return state.CreateResume.personalDate
     },
     formIsToggle(state: RootType) {
         return state.CreateResume.loading
     },
-    errors(state: RootType){
+    errors(state: RootType) {
         return state.CreateResume.errors
+    },
+    getGitHub(state: RootType) {
+        return state.CreateResume.gitHub
+    },
+    getSkills(state: RootType){
+        return state.CreateResume.skills
     },
 }
 
 export const Vacances = {
-    errors(state: RootType){
+    errors(state: RootType) {
         return (state.employee.errors)
     },
     getVacances(state: RootType) {
@@ -47,13 +54,13 @@ export const Vacances = {
     isLoading(state: RootType) {
         return state.employee.isLoading
     },
-    getTotalCount(state: RootType){
+    getTotalCount(state: RootType) {
         return state.employee.maxCount
     },
 }
 
 export const Vacance = {
-    getVacance(state: RootType){
+    getVacance(state: RootType) {
         return state.vacance.vacance
     }
 }

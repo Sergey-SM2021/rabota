@@ -1,12 +1,13 @@
 import { Button, Input, Space } from "antd"
 import { useFormik } from "formik"
 import { FC } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { skillLavel } from "../../Models/Models"
 import { setSkills } from "../../redux/reducers/newResume/ANewResume"
+import { NewResume } from '../../redux/selectors'
 
 export const Skills: FC = () => {
+    const { description, experience, profession, skillLavel, technologyStack } = useSelector(NewResume.getSkills)
 
     const dispatch = useDispatch()
 
@@ -21,11 +22,11 @@ export const Skills: FC = () => {
             nav("/createResume/2")
         },
         initialValues: {
-            description: "",
-            profession: "",
-            skillLavel: skillLavel.JUNIOR,
-            technologyStack: [""],
-            experience: ""
+            description,
+            profession,
+            skillLavel,
+            technologyStack,
+            experience
         }
     })
     return (<form onSubmit={handleSubmit}>

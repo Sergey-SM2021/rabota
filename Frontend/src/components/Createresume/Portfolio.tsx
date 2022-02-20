@@ -1,19 +1,24 @@
 import { Button, Input, Space } from "antd"
 import { useFormik } from "formik"
 import { FC } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import { setPortfolio } from "../../redux/reducers/newResume/ANewResume"
+import { NewResume } from "../../redux/selectors"
 
 export const Portfolio: FC = () => {
+    const gitHub = useSelector(NewResume.getGitHub)
+    const dispatch = useDispatch()
     const handleBack = () => {
         nav(-1)
     }
     const nav = useNavigate()
     const { handleSubmit, handleBlur, handleChange, values } = useFormik({
         initialValues: {
-            gitHub: ""
+            gitHub: gitHub
         },
         onSubmit: values => {
-            
+            dispatch(setPortfolio(values.gitHub))
         }
     })
     return (<form onSubmit={handleSubmit}>

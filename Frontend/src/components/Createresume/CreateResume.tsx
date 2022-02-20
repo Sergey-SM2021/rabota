@@ -14,11 +14,3 @@ const Resume = () => {
 }
 
 export default Resume
-                // skills: [""],
-
-                // profession: "",
-                // description: "",
-                // skillLavel: "",
-                // gmail: "",
-                // sity: "",
-                // country: ""
