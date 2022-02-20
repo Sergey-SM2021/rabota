@@ -10,8 +10,10 @@ export const Skills: FC = () => {
     }
 
     const nav = useNavigate()
-    const {handleBlur,handleSubmit,handleChange, values } = useFormik({
-        onSubmit: () => { },
+    const { handleBlur, handleSubmit, handleChange, values } = useFormik({
+        onSubmit: () => {
+            nav("/createResume/2")
+        },
         initialValues: {
             description: "",
             profession: "",
