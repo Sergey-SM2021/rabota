@@ -20,18 +20,23 @@ interface IIntialState {
 let defState: IIntialState = {
     resumes: [
         {
-            name: "Сергий",
             _id: "678fff",
-            surename: "Кузнецов",
-            number: "89168518338",
-            profession: "Начинающий frontend developer",
-            skills: ["JavaScript", "css&html", "react&redux"],
-            experience: "есть",
-            country:"Дакка",
-            description:"Крутой индус",
-            gmail:"Indian@gmail.com",
-            sity:"Бангладеш",
-            skillLavel:skillLavel.MIDDLE
+            personalDate: {
+                country: "Дакка",
+                mail: "Indian@gmail.com",
+                name: "Сергий",
+                surename: "Кузнецов",
+                phone: 89168518338,
+                sity:"Бангладеш",
+            },
+            portfolio:["jkfdkjfdfkjd."],
+            skills:{
+                description:"Крутой индус",
+                experience:"есть",
+                profession:"Js dev",
+                skillLavel: skillLavel.MIDDLE,
+                technologyStack:["JavaScript", "css&html", "react&redux"],
+            } 
         }
     ],
     totalCountCount: 7,
@@ -40,12 +45,12 @@ let defState: IIntialState = {
 }
 
 interface ISetErrors {
-    type:CONSTANTS.SETERRORS,
-    message:string
+    type: CONSTANTS.SETERRORS,
+    message: string
 }
 
-const setErrors = (message:string):ISetErrors =>
-    ({message,type:CONSTANTS.SETERRORS})
+const setErrors = (message: string): ISetErrors =>
+    ({ message, type: CONSTANTS.SETERRORS })
 
 interface ISettotalCountCount {
     totalCountCount: number
@@ -82,6 +87,7 @@ const employer = (state = defState, action: actionTypes) => {
     switch (action.type) {
         case CONSTANTS.SETRESUMES:
             statecopy.resumes = action.data
+            debugger
             return statecopy
         case CONSTANTS.SETtotalCountCOUNT:
             statecopy.totalCountCount = action.totalCountCount
@@ -91,7 +97,7 @@ const employer = (state = defState, action: actionTypes) => {
             return statecopy
         case CONSTANTS.SETERRORS:
             statecopy.errors = action.message
-            return  statecopy
+            return statecopy
         default:
             break;
     }
@@ -105,9 +111,9 @@ export const getResumes = (page = 6, count = 1) => {
             const { resumes, totalCount } = await axios.Resume.getResumes(page, count)
             dispatch(setResumesAC(resumes))
             dispatch(settotalCountCount(totalCount))
-        }catch (e:any) {
+        } catch (e: any) {
             dispatch(setErrors(e))
-        }finally {
+        } finally {
             dispatch(switchPreloader())
         }
 

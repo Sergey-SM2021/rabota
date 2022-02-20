@@ -1,18 +1,22 @@
 import mongoose from "mongoose";
 
 const Resume = new mongoose.Schema({
-        name: String,
-        surename: String,
-        number: String,
-        skills: [String],
-        experience: String,
-
-        profession: String,
-        description: String,
-        skillLavel: String,
-        gmail: String,
-        sity: String,
-        country: String
+        personalDate: {
+                name: String,
+                phone: Number,
+                surename: String,
+                mail: String,
+                sity: String,
+                country: String,
+        },
+        skills: {
+                description: String,
+                profession: String,
+                skillLavel: String,
+                technologyStack: [String],
+                experience: String,
+        },
+        portfolio: [String],
 })
 
 export default mongoose.model("Resume", Resume)

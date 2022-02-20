@@ -13,9 +13,9 @@ function Resume(Resume: TIResume) {
 
     return (<>
         <Card style={{ marginBottom: 10, marginTop: 10 }}>
-            <h2 className={Style.title}>{Resume.profession}</h2>
+            <h2 className={Style.title}>{Resume.personalDate.name}</h2>
             <p>100$ - 786$</p>
-            <p>Опыт работы:{Resume.experience}</p>
+            <p>Опыт работы:{Resume.skills.experience}</p>
             <Button type={"primary"} onClick={HandlerResumeSelected}>Показать анкету</Button>
         </Card>
     </>)
