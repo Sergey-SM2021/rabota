@@ -16,7 +16,7 @@ const Resume = new mongoose.Schema({
                 technologyStack: [String],
                 experience: String,
         },
-        portfolio: [String],
+        gitHub: String,
 })
 
 export default mongoose.model("Resume", Resume)

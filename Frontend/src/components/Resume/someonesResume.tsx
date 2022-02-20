@@ -20,7 +20,7 @@ const ResumeAnyPerson = () => {
       // #FIXME: hardcode resume id default
     }
   }, [loc])
-  let { personalDate, portfolio, skills, _id } = useSelector(selector.Resume.getResume)
+  let { personalDate, gitHub, skills, _id } = useSelector(selector.Resume.getResume)
   return (<>
     {
       isLoading ? <Spin size='large' /> : <Card className={Style.card}>

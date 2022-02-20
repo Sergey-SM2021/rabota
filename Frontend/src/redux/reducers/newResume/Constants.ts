@@ -5,5 +5,7 @@ export enum constants {
     CLEARSTATE = "CLEARSTATE",
     NEXT = "NEXT",
     SETPERSONALDATE = "SETPERSONALDATE", 
-    SKILLS = "SKILLS"
+    SKILLS = "SKILLS",
+    SETRESUME = "SETRESUME",
+    SETGITHUB = "SETGITHUB"
 }

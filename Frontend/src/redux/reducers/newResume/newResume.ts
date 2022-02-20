@@ -19,7 +19,8 @@ let defaultState: INewResume = {
         skillLavel: skillLavel.JUNIOR,
         technologyStack: [""],
         experience: ""
-    }
+    },
+    gitHub: ""
 }
 
 const form = (state = defaultState, action: actionType) => {
@@ -39,6 +40,9 @@ const form = (state = defaultState, action: actionType) => {
             return stateCopy
         case constants.SETERRORRS:
             stateCopy.errors = action.errors
+            return stateCopy
+        case constants.SETGITHUB:
+            stateCopy.gitHub = action.payload
             return stateCopy
         default:
             return stateCopy

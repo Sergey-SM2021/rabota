@@ -3,7 +3,7 @@ import { Resume } from '../../../api/api'
 import { Dispatch } from "redux"
 import { ResumeType } from "../../../Models/Models"
 import { constants } from './Constants'
-import { actionType, IClearState, INext, IReturn, ISetErrors, ISetPersonalDate, ISetSkills, ItoggleLoading, SkillsType } from './INewResume'
+import { actionType, IClearState, INext, IReturn, ISetErrors, ISetGitGub, ISetPersonalDate, ISetSkills, ItoggleLoading, SkillsType } from './INewResume'
 
 export const ClearState = (): IClearState => ({ type: constants.CLEARSTATE })
 
@@ -32,6 +32,11 @@ export const SetPersonalDate = (date:INewResume["personalDate"]): ISetPersonalDa
 export const setSkills = (skills:SkillsType):ISetSkills => ({
     payload:skills,
     type:constants.SKILLS
+})
+
+export const setPortfolio = (GitHub:string):ISetGitGub => ({
+    type:constants.SETGITHUB,
+    payload:GitHub
 })
 
 export const SendResume = (data: ResumeType) => {

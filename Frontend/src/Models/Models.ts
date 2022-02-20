@@ -24,7 +24,7 @@ export interface TIResume {
                 technologyStack: Array<string>,
                 experience: string
         }
-        portfolio: Array<string>
+        gitHub: string
 }
 
 export type ResumeType = Omit<TIResume, "_id">
@@ -46,4 +46,5 @@ export interface INewResume {
         errors: string,
         personalDate: ResumeType["personalDate"]
         skills: ResumeType["skills"]
+        gitHub: TIResume["gitHub"]
 }

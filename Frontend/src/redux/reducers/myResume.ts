@@ -18,7 +18,7 @@ let initialState: { Resume: TIResume, isLoading: Boolean } = {
             phone: 89168518338,
             sity: "Бангладеш",
         },
-        portfolio: ["jkfdkjfdfkjd."],
+        gitHub: "jkfdkjfdfkjd.",
         skills: {
             description: "Крутой индус",
             experience: "есть",

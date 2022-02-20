@@ -32,7 +32,12 @@ export interface ISetSkills{
     payload: INewResume["skills"]
 }
 
+export interface ISetGitGub{
+    type:constants.SETGITHUB
+    payload: INewResume["gitHub"]
+}
+
 export type SkillsType =  INewResume["skills"]
 
-export type actionType = ItoggleLoading | ISetErrors | IClearState | INext | IReturn | ISetPersonalDate | ISetSkills
+export type actionType = ISetGitGub | ItoggleLoading | ISetErrors | IClearState | INext | IReturn | ISetPersonalDate | ISetSkills
 
