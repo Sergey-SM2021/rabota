@@ -24,10 +24,10 @@ export interface TIResume {
                 technologyStack: Array<string>,
                 experience: string
         }
-        portfolio:Array<string>
+        portfolio: Array<string>
 }
 
-export type ResumeType = Omit<TIResume,"_id">
+export type ResumeType = Omit<TIResume, "_id">
 
 export type IVacance = Omit<TIVacance, "_id">
 
@@ -39,4 +39,11 @@ export interface TIVacance {
         isDistantWork: boolean,
         phone: number,
         description: string
+}
+
+export interface INewResume {
+        loading: boolean,
+        errors: string,
+        personalDate: ResumeType["personalDate"]
+        skills: ResumeType["skills"]
 }

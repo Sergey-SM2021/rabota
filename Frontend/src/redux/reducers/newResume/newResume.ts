@@ -1,8 +1,8 @@
-import { skillLavel } from './../../../Models/Models';
+import { INewResume, skillLavel } from './../../../Models/Models'
 import { constants } from "./Constants"
-import { actionType, IDefaultState } from "./INewResume"
+import { actionType } from "./INewResume"
 
-let defaultState: IDefaultState = {
+let defaultState: INewResume = {
     loading: false,
     errors: "",
     personalDate: {

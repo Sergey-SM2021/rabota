@@ -1,8 +1,9 @@
+import { INewResume } from './../../../Models/Models'
 import { Resume } from '../../../api/api'
 import { Dispatch } from "redux"
 import { ResumeType } from "../../../Models/Models"
 import { constants } from './Constants'
-import { actionType, IClearState, INext, IReturn, ISetErrors, ISetPersonalDate, ItoggleLoading, IPersonalDate } from './INewResume'
+import { actionType, IClearState, INext, IReturn, ISetErrors, ISetPersonalDate, ItoggleLoading } from './INewResume'
 
 export const ClearState = (): IClearState => ({ type: constants.CLEARSTATE })
 
@@ -23,7 +24,7 @@ export const Return = (): IReturn => ({
     type: constants.RETURN
 })
 
-export const SetPersonalDate = (date:IPersonalDate): ISetPersonalDate => ({
+export const SetPersonalDate = (date:INewResume["personalDate"]): ISetPersonalDate => ({
     payload:date,
     type:constants.SETPERSONALDATE
 })
