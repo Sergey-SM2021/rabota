@@ -1,9 +1,11 @@
+import { skillLavelType } from "../../../Models/Models";
 import { constants } from "./Constants";
 
 export interface IDefaultState {
     loading: boolean,
     errors: string,
-    personalDate: PersonalDate
+    personalDate: IPersonalDate
+    skills: ISkills
 }
 
 export interface ISetErrors {
@@ -29,13 +31,26 @@ export interface IClearState {
 
 export type actionType = ItoggleLoading | ISetErrors | IClearState | INext | IReturn | ISetPersonalDate
 
-export interface PersonalDate {
+export interface IPersonalDate {
     name: string,
-    phone: string,
+    phone: number,
     surename: string
+    mail: string,
+    sity: string,
+    country: string
 }
+
+export interface ISkills {
+    description: string,
+    profession: string,
+    skillLavel: skillLavelType,
+    technologyStack: Array<string>,
+    experience: string
+}
+
+// #FIXME:IDefaultState mast be in models
 
 export interface ISetPersonalDate {
     type: constants.SETPERSONALDATE,
-    payload: PersonalDate
+    payload: IPersonalDate
 }

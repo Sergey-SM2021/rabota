@@ -1,3 +1,4 @@
+import { skillLavel } from './../../../Models/Models';
 import { constants } from "./Constants"
 import { actionType, IDefaultState } from "./INewResume"
 
@@ -6,9 +7,19 @@ let defaultState: IDefaultState = {
     errors: "",
     personalDate: {
         name: "",
-        phone: "",
-        surename: ""
+        phone: 8,
+        surename: "",
+        country: "",
+        mail: "",
+        sity: ""
     },
+    skills: {
+        description: "",
+        profession: "",
+        skillLavel: skillLavel.JUNIOR,
+        technologyStack: [""],
+        experience: ""
+    }
 }
 
 const form = (state = defaultState, action: actionType) => {

@@ -12,14 +12,17 @@ export const Private: FC = () => {
     const backHandler = () => {
         nav(-1)
     }
-    const { name, phone, surename } = useSelector(NewResume.getState)
+    const { name, phone, surename,country,mail,sity } = useSelector(NewResume.getState)
     const dispatch = useDispatch()
 
     const { handleSubmit, handleChange, handleBlur, values } = useFormik({
         initialValues: {
             name,
             surename,
-            phone
+            phone,
+            mail,
+            sity,
+            country
         },
         onSubmit: (values) => {
             dispatch(SetPersonalDate(values))
@@ -39,6 +42,18 @@ export const Private: FC = () => {
             <Space align="center">
                 <h3>Номер телефона</h3>
                 <Input onBlur={handleBlur} value={values.phone} onChange={handleChange} name="phone" />
+            </Space>
+            <Space align="center">
+                <h3>Почта</h3>
+                <Input onBlur={handleBlur} value={values.mail} onChange={handleChange} name="mail" />
+            </Space>
+            <Space align="center">
+                <h3>Страна</h3>
+                <Input onBlur={handleBlur} value={values.country} onChange={handleChange} name="country" />
+            </Space>
+            <Space align="center">
+                <h3>Город</h3>
+                <Input onBlur={handleBlur} value={values.sity} onChange={handleChange} name="sity" />
             </Space>
             <Space >
                 <Button onClick={backHandler}>Назад</Button>

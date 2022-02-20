@@ -1,4 +1,4 @@
-import { IResume, IVacance, TIResume, TIVacance } from '../Models/Models'
+import { ResumeType, IVacance, TIResume, TIVacance } from '../Models/Models'
 
 import axios from "axios";
 
@@ -7,7 +7,7 @@ const instace = axios.create({
 })
 
 export const Resume = {
-    async createResume(resume: IResume) {
+    async createResume(resume: ResumeType) {
         try {
             await instace.post("resume/create", resume)
         } catch (error) {
