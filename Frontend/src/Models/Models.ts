@@ -48,3 +48,5 @@ export interface INewResume {
         skills: ResumeType["skills"]
         gitHub: TIResume["gitHub"]
 }
+
+// FIXME: propirty loading & errors mast be emplementation via useState

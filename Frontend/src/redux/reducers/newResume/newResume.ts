@@ -36,7 +36,11 @@ const form = (state = defaultState, action: actionType) => {
             stateCopy.personalDate = action.payload
             return stateCopy
         case constants.CLEARSTATE:
-            stateCopy.errors = ""
+            stateCopy.gitHub = defaultState.gitHub
+            stateCopy.personalDate = defaultState.personalDate
+            stateCopy.skills = defaultState.skills
+            // FIXME:state mast can clianing
+            console.log("🚀 ~ file: newResume.ts ~ line 40 ~ form ~ stateCopy", stateCopy)
             return stateCopy
         case constants.SETERRORRS:
             stateCopy.errors = action.errors

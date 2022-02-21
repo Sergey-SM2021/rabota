@@ -19,6 +19,7 @@ export const Portfolio: FC = () => {
         },
         onSubmit: values => {
             dispatch(setPortfolio(values.gitHub))
+            nav("/createResume/3")
         }
     })
     return (<form onSubmit={handleSubmit}>

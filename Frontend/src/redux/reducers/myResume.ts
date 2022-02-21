@@ -58,7 +58,6 @@ const Reducer = (state = initialState, action: actionType) => {
             return stateCopy
         case constants.SETRESUME:
             stateCopy.Resume = action.resume
-            debugger
             return stateCopy
         default:
             return stateCopy
@@ -70,7 +69,6 @@ export const getResume = (id: string) => (
         dispatch(switchLoad())
         try {
             const Resumes = await axios.Resume.getResume(id)
-            debugger
             dispatch(setResume(Resumes))
         } catch (e) {
             alert(e)

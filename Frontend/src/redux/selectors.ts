@@ -26,10 +26,6 @@ export const Resume = {
 }
 
 export const NewResume = {
-    // #FIXME: getState mast be caled getPersonalDate
-    getState(state: RootType) {
-        return state.CreateResume.personalDate
-    },
     formIsToggle(state: RootType) {
         return state.CreateResume.loading
     },
@@ -41,6 +37,9 @@ export const NewResume = {
     },
     getSkills(state: RootType){
         return state.CreateResume.skills
+    },
+    getPersonalData(state: RootType) {
+        return state.CreateResume.personalDate
     },
 }
 

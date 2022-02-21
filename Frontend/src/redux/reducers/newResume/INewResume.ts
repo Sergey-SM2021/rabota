@@ -39,5 +39,5 @@ export interface ISetGitGub{
 
 export type SkillsType =  INewResume["skills"]
 
-export type actionType = ISetGitGub | ItoggleLoading | ISetErrors | IClearState | INext | IReturn | ISetPersonalDate | ISetSkills
+export type actionType = ISetGitGub | ItoggleLoading | ISetErrors | IClearState | INext | IReturn | ISetPersonalDate | ISetSkills 
 

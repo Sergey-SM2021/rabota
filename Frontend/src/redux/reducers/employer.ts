@@ -87,7 +87,6 @@ const employer = (state = defState, action: actionTypes) => {
     switch (action.type) {
         case CONSTANTS.SETRESUMES:
             statecopy.resumes = action.data
-            debugger
             return statecopy
         case CONSTANTS.SETtotalCountCOUNT:
             statecopy.totalCountCount = action.totalCountCount

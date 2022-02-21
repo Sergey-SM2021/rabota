@@ -12,7 +12,7 @@ export const Private: FC = () => {
     const backHandler = () => {
         nav(-1)
     }
-    const { name, phone, surename,country,mail,sity } = useSelector(NewResume.getState)
+    const { name, phone, surename,country,mail,sity } = useSelector(NewResume.getPersonalData)
     const dispatch = useDispatch()
 
     const { handleSubmit, handleChange, handleBlur, values } = useFormik({

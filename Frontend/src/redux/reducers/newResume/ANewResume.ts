@@ -44,6 +44,7 @@ export const SendResume = (data: ResumeType) => {
         dispatch(toggleLoading())
         try {
             await Resume.createResume(data)
+            dispatch(ClearState())
             alert("Резюме было создано")
         } catch (error: any) {
             dispatch(setErrors(error))

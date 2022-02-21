@@ -6,6 +6,8 @@ export enum constants {
     NEXT = "NEXT",
     SETPERSONALDATE = "SETPERSONALDATE", 
     SKILLS = "SKILLS",
-    SETRESUME = "SETRESUME",
+    SENDRESUME = "SENDRESUME",
     SETGITHUB = "SETGITHUB"
 }
+
+// FIXME: remoove deprivation of property
