@@ -11,7 +11,7 @@ import { MyField } from "../MyField"
 
 const { Content, Footer } = Layout
 
-export const Private:FC = () => {
+export const Private: FC = () => {
     const nav = useNavigate()
 
     const { name, phone, surename, country, mail, sity } = useSelector(NewResume.getPersonalData)
@@ -39,26 +39,26 @@ export const Private:FC = () => {
             nav("/createResume/1")
         }
     })
-    
-    return (<></>
-                // <form onSubmit={handleSubmit}>
-                //     <Space direction="vertical">
-                //         <MyField title="Имя" error={errors.name} handleBlur={handleBlur}
-                //             handleChange={handleChange} name="name" value={values.name} />
-                //         <MyField title="Фамилия" error={errors.surename} handleBlur={handleBlur}
-                //             handleChange={handleChange} name="surename" value={values.surename} />
-                //         <MyField title="Номер телефона" error={errors.phone} handleBlur={handleBlur}
-                //             handleChange={handleChange} name="phone" value={values.phone} />
-                //         <MyField title="Почта" error={errors.mail} handleBlur={handleBlur}
-                //             handleChange={handleChange} name="mail" value={values.mail} />
-                //         <MyField title="Страна" error={errors.country} handleBlur={handleBlur}
-                //             handleChange={handleChange} name="country" value={values.country} />
-                //         <MyField title="Город" error={errors.sity} handleBlur={handleBlur}
-                //             handleChange={handleChange} name="sity" value={values.sity} />
-                //         <Space >
-                //             <Button type="primary" htmlType="submit" >Дальше</Button>
-                //         </Space>
-                //     </Space>
-                // </form>
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <Space direction="vertical">
+                <MyField title="Имя" error={errors.name} handleBlur={handleBlur}
+                    handleChange={handleChange} name="name" value={values.name} />
+                <MyField title="Фамилия" error={errors.surename} handleBlur={handleBlur}
+                    handleChange={handleChange} name="surename" value={values.surename} />
+                <MyField title="Номер телефона" error={errors.phone} handleBlur={handleBlur}
+                    handleChange={handleChange} name="phone" value={values.phone} />
+                <MyField title="Почта" error={errors.mail} handleBlur={handleBlur}
+                    handleChange={handleChange} name="mail" value={values.mail} />
+                <MyField title="Страна" error={errors.country} handleBlur={handleBlur}
+                    handleChange={handleChange} name="country" value={values.country} />
+                <MyField title="Город" error={errors.sity} handleBlur={handleBlur}
+                    handleChange={handleChange} name="sity" value={values.sity} />
+                <Space >
+                    <Button type="primary" htmlType="submit" >Дальше</Button>
+                </Space>
+            </Space>
+        </form>
     )
 }

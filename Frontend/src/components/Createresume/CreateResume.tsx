@@ -1,6 +1,5 @@
 import { Layout } from 'antd'
 import { Outlet } from 'react-router-dom'
-import { LastStep } from './LastStep'
 import Steps from './Steps/Steps'
 
 const { Content, Footer } = Layout
@@ -10,7 +9,7 @@ const Resume = () => {
         <Steps />
         <Layout className="layout" style={{ minHeight: "80vh" }}>
             <Content style={{ padding: '20px 50px' }}>
-                <LastStep/>
+                <Outlet/>
             </Content>
             <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
         </Layout>

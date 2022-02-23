@@ -39,19 +39,19 @@ export const Skills: FC = () => {
             experience
         }
     })
-    return (<></>
-    // <form onSubmit={handleSubmit}>
-    //     <Space direction="vertical">
-    //         <MyField error={errors.description} handleBlur={handleBlur} handleChange={handleChange} name="description" title={"Описание"} value={values.description} />
-    //         <MyField error={errors.profession} handleBlur={handleBlur} handleChange={handleChange} name="profession" title={"Профессия"} value={values.profession} />
-    //         <MyField error={errors.skillLavel} handleBlur={handleBlur} handleChange={handleChange} name="skillLavel" title={"Позиция"} value={values.skillLavel} />
-    //         <MyField title="Стек" handleBlur={handleBlur} value={values.technologyStack} handleChange={handleChange} error={errors.technologyStack} name="technologyStack" />
-    //         <MyField title="Опыт работы" handleBlur={handleBlur} value={values.experience} handleChange={handleChange} error={errors.experience} name="experience" />
-    //         <Space >
-    //             <Button onClick={backHandler}>Назад</Button>
-    //             <Button htmlType="submit" >Дальше</Button>
-    //         </Space>
-    //     </Space>
-    // </form >
+    return (
+    <form onSubmit={handleSubmit}>
+        <Space direction="vertical">
+            <MyField error={errors.description} handleBlur={handleBlur} handleChange={handleChange} name="description" title={"Описание"} value={values.description} />
+            <MyField error={errors.profession} handleBlur={handleBlur} handleChange={handleChange} name="profession" title={"Профессия"} value={values.profession} />
+            <MyField error={errors.skillLavel} handleBlur={handleBlur} handleChange={handleChange} name="skillLavel" title={"Позиция"} value={values.skillLavel} />
+            <MyField title="Стек" handleBlur={handleBlur} value={values.technologyStack} handleChange={handleChange} error={errors.technologyStack} name="technologyStack" />
+            <MyField title="Опыт работы" handleBlur={handleBlur} value={values.experience} handleChange={handleChange} error={errors.experience} name="experience" />
+            <Space >
+                <Button onClick={backHandler}>Назад</Button>
+                <Button htmlType="submit" >Дальше</Button>
+            </Space>
+        </Space>
+    </form >
     )
 }

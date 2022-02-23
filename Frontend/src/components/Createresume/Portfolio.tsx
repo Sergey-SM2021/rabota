@@ -27,15 +27,15 @@ export const Portfolio: FC = () => {
             nav("/createResume/3")
         }
     })
-    return (<></>
-    // <form onSubmit={handleSubmit}>
-    //     <Space direction="vertical">
-    //         <MyField title="GitHub" name="gitHub" value={values.gitHub} handleBlur={handleBlur} handleChange={handleChange} error={errors.gitHub} />
-    //         <Space >
-    //             <Button onClick={handleBack}>Назад</Button>
-    //             <Button htmlType="submit" >Дальше</Button>
-    //         </Space>
-    //     </Space>
-    // </form>
+    return (
+    <form onSubmit={handleSubmit}>
+        <Space direction="vertical">
+            <MyField title="GitHub" name="gitHub" value={values.gitHub} handleBlur={handleBlur} handleChange={handleChange} error={errors.gitHub} />
+            <Space >
+                <Button onClick={handleBack}>Назад</Button>
+                <Button htmlType="submit" >Дальше</Button>
+            </Space>
+        </Space>
+    </form>
     )
 }
