@@ -1,21 +1,31 @@
-import { Button, Input, Space } from "antd"
+import { Button, Layout, Space } from "antd"
 import { useFormik } from "formik"
 import { FC } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import * as yup from 'yup'
+
 import { SetPersonalDate } from "../../../redux/reducers/newResume/ANewResume"
 import { NewResume } from "../../../redux/selectors"
+import { MyField } from "../MyField"
 
-export const Private: FC = () => {
+const { Content, Footer } = Layout
+
+export const Private:FC = () => {
     const nav = useNavigate()
 
-    const backHandler = () => {
-        nav(-1)
-    }
-    const { name, phone, surename,country,mail,sity } = useSelector(NewResume.getPersonalData)
+    const { name, phone, surename, country, mail, sity } = useSelector(NewResume.getPersonalData)
     const dispatch = useDispatch()
 
-    const { handleSubmit, handleChange, handleBlur, values } = useFormik({
+    const { handleSubmit, handleChange, handleBlur, values, errors } = useFormik({
+        validationSchema: yup.object({
+            name: yup.string().required(),
+            surename: yup.string().required(),
+            phone: yup.number().required(),
+            mail: yup.string().email().required(),
+            sity: yup.string().required(),
+            country: yup.string().required()
+        }),
         initialValues: {
             name,
             surename,
@@ -29,37 +39,26 @@ export const Private: FC = () => {
             nav("/createResume/1")
         }
     })
-    return (<form onSubmit={handleSubmit}>
-        <Space direction="vertical">
-            <Space align="center">
-                <h3>Имя</h3>
-                <Input onBlur={handleBlur} value={values.name} onChange={handleChange} name="name" />
-            </Space>
-            <Space align="center">
-                <h3>Фамилия</h3>
-                <Input onBlur={handleBlur} value={values.surename} onChange={handleChange} name="surename" />
-            </Space>
-            <Space align="center">
-                <h3>Номер телефона</h3>
-                <Input onBlur={handleBlur} value={values.phone} onChange={handleChange} name="phone" />
-            </Space>
-            <Space align="center">
-                <h3>Почта</h3>
-                <Input onBlur={handleBlur} value={values.mail} onChange={handleChange} name="mail" />
-            </Space>
-            <Space align="center">
-                <h3>Страна</h3>
-                <Input onBlur={handleBlur} value={values.country} onChange={handleChange} name="country" />
-            </Space>
-            <Space align="center">
-                <h3>Город</h3>
-                <Input onBlur={handleBlur} value={values.sity} onChange={handleChange} name="sity" />
-            </Space>
-            <Space >
-                <Button onClick={backHandler}>Назад</Button>
-                <Button htmlType="submit" >Дальше</Button>
-            </Space>
-        </Space>
-    </form>)
+    
+    return (<></>
+                // <form onSubmit={handleSubmit}>
+                //     <Space direction="vertical">
+                //         <MyField title="Имя" error={errors.name} handleBlur={handleBlur}
+                //             handleChange={handleChange} name="name" value={values.name} />
+                //         <MyField title="Фамилия" error={errors.surename} handleBlur={handleBlur}
+                //             handleChange={handleChange} name="surename" value={values.surename} />
+                //         <MyField title="Номер телефона" error={errors.phone} handleBlur={handleBlur}
+                //             handleChange={handleChange} name="phone" value={values.phone} />
+                //         <MyField title="Почта" error={errors.mail} handleBlur={handleBlur}
+                //             handleChange={handleChange} name="mail" value={values.mail} />
+                //         <MyField title="Страна" error={errors.country} handleBlur={handleBlur}
+                //             handleChange={handleChange} name="country" value={values.country} />
+                //         <MyField title="Город" error={errors.sity} handleBlur={handleBlur}
+                //             handleChange={handleChange} name="sity" value={values.sity} />
+                //         <Space >
+                //             <Button type="primary" htmlType="submit" >Дальше</Button>
+                //         </Space>
+                //     </Space>
+                // </form>
+    )
 }
-

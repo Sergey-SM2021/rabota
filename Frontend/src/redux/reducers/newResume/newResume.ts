@@ -6,7 +6,7 @@ let defaultState: INewResume = {
     loading: false,
     errors: "",
     personalDate: {
-        name: "",
+        name: "111",
         phone: 8,
         surename: "",
         country: "",
